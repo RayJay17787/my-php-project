@@ -12,7 +12,7 @@
 ?>
 
 <div class="container my-5 py-5">
-    <h1 class="text-center mb-4">User Table</h1>
+    <h1 class="text-center mb-4"><b>User Table</b></h1>
 
     <div class="text-end me-2">
         <a href="create_users.php">

@@ -37,7 +37,10 @@ include 'adminheader.php';
                     <h2 class="fw-bold fs-4 text-center">Edit Info For <?= $total['name']; ?></h2>
                     <hr class="mb-3 mt-3">
 
-                    <form action="" method="POST">
+                    <form action="update_users.php" method="POST">
+
+                        <input name="id" type="text" value="<?= $total['id'];?>" hidden>
+
                         <div class="row g-2 mb-3">
                             <div class="col-12 col-sm-6 w-100">
                                 <label class="form-label">First name</label>
@@ -174,7 +177,8 @@ include 'adminheader.php';
                             <span id="password_error" class="text-danger small d-block"></span>
                         </div>
                         <div class="text-center mb-3 ">
-                            <button name="signupButton" type="submit" onclick="formsub(event)" class="btn btn-dark px-4 px-md-5 mt-3">Add User</button>
+                            <button name="submitButton" type="submit" onclick="formsub(event)" class="btn btn-success px-4 px-md-5 mt-3">Update <b><?= $total['name'];?></b></button>
+                            <button name="cancelButton" type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger px-4 px-md-5 mt-3">Cancel</button>
                         </div>
                     </form>
                 </div>
@@ -195,7 +199,7 @@ include 'adminheader.php';
 
             var firstName = document.getElementById('first_name').value
             if (firstName != '') {
-                var firstNameRegex = /^[a-zA-Z]{1,1000}$/
+                var firstNameRegex = /^[a-zA-Z\s]{1,1000}$/
                 var testFirstName = firstNameRegex.test(firstName)
                 if (testFirstName == false) {
                     document.getElementById('first_name_error').innerHTML = "enter valid value please"
