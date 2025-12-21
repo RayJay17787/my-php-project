@@ -49,7 +49,7 @@
                         <button class="btn btn-warning btn-sm">Edit</button>
                     </a>
                     <a href="delete_users.php?id=<?= $total['id'];?>">
-                        <button class="btn btn-danger btn-sm">Delete</button>
+                        <button onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button>
                     </a>
                 </td>
             </tr>
