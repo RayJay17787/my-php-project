@@ -1,7 +1,7 @@
 <?php
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
-$query = "SELECT * FROM products";
+$query = "SELECT * FROM products WHERE platform IN ('Playstation 5, Playstation 4')";
 $result = mysqli_query($conn, $query);
 $row = mysqli_num_rows($result);
 include 'adminheader.php';
@@ -10,7 +10,7 @@ include 'adminheader.php';
 <div class="container my-5 py-5">
     <h1 class="text-center mb-4"><b>PlayStation 5 Disc Listing</b></h1>
 
-    <table class="table table-bordered table-gover text-center">
+    <table class="table table-bordered table-hover text-center">
         <thead class="table-dark">
             <th>S.No</th>
             <th>ID</th>
@@ -27,7 +27,6 @@ include 'adminheader.php';
             <?php
             for ($i = 0; $i < $row; $i++) {
                 $total = mysqli_fetch_assoc($result);
-                if($total['platform'] == 'Playstation 5' || $total['platform'] == 'ps5'){
                     ?>
                 <tr>
                     <td><?= $i + 1; ?></td>
@@ -35,7 +34,7 @@ include 'adminheader.php';
                     <td><img src="images/<?= $total['image'] ?>" width="80" height="80"></td>
                     <td><?= $total['name'] ?></td>
                     <td><?= $total['company'] ?></td>
-                    <td><?= $total['platform'] ?></td>
+                    <td>Playstation 5</td>
                     <td><?= $total['genre'] ?></td>
                     <td><?= $total['price'] ?></td>
                     <td><?= $total['stock'] ?></td>
@@ -49,7 +48,6 @@ include 'adminheader.php';
                     </td>
                 </tr>
             <?php
-                }
             }
             ?>
 
