@@ -4,9 +4,7 @@
     $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
     if(isset($_POST['signupButton'])){
-        $fname = $_POST['first_name'];
-        $lname = $_POST['last_name'];
-        $name = $fname . " " . $lname;
+        $name = $_POST['first_name'];
 
         $day = $_POST['day'];
         $month = $_POST['month'];
@@ -213,7 +211,7 @@
 
             var firstName = document.getElementById('first_name').value
             if (firstName != '') {
-                var firstNameRegex = /^[a-zA-Z]{1,1000}$/
+                var firstNameRegex = /^[a-zA-Z\s]{1,1000}$/
                 var testFirstName = firstNameRegex.test(firstName)
                 if (testFirstName == false) {
                     document.getElementById('first_name_error').innerHTML = "enter valid value please"

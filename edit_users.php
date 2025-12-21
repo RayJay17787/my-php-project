@@ -225,7 +225,7 @@ include 'adminheader.php';
 
             var Pass = document.getElementById('password').value
             if (Pass != '') {
-                var PassRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,16}$/;
+                var PassRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$@!%&*?])[A-Za-z\d#$@!%&*?]{8,50}$/;
                 var TestPass = PassRegex.test(Pass)
                 if (TestPass == false) {
                     document.getElementById('password_error').innerHTML = "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:"
