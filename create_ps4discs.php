@@ -17,7 +17,7 @@ if (isset($_POST['submitButton'])) {
 
     mysqli_query($conn, $query);
 
-    header("Location: ps5discs.php");
+    header("Location: ps4discs.php");
     exit();
 }
 
@@ -32,7 +32,7 @@ include 'adminheader.php';
                     GAMEVAULT</h1>
 
                 <div class="card p-3 p-md-4">
-                    <h2 class="fw-bold fs-4 text-center">Add A Playstation 5 Disc</h2>
+                    <h2 class="fw-bold fs-4 text-center">Add A Playstation 4 Disc</h2>
                     <hr class="mb-3 mt-3">
 
                     <form action="" method="POST">
@@ -58,7 +58,7 @@ include 'adminheader.php';
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Platform</span>
                                 <input type="text" class="form-control" id="platform" name="platform"
-                                    value="Playstation 5" readonly>
+                                    value="Playstation 4" readonly>
                             </div>
                             <span id="platform_error" class="text-danger small"></span>
                         </div>
