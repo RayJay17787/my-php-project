@@ -93,7 +93,7 @@ include 'adminheader.php';
                         <div class="text-center mb-3 ">
                             <button name="submitButton" type="submit" onclick="formsub(event)" class="btn btn-success px-4 px-md-5 mt-3">Edit <?= $total['name'] ?></button>
                             <a href="ps4discs.php">
-                                <button name="cancelButton" type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger px-4 px-md-5 mt-3">Cancel</button>
+                                <button name="cancelButton" type="button" onclick="return confirm('Are you sure?')" class="btn btn-danger px-4 px-md-5 mt-3">Cancel</button>
                             </a>
                             </div>
                     </form>
