@@ -15,7 +15,7 @@ include 'adminheader.php';
 
     <div class="text-end me-2">
         <a href="create_admin.php">
-            <button class="btn btn-success rounded-pill mb-4">+Add Admin</button>
+            <button class="btn btn-success rounded-pill mb-4">+ Add Admin</button>
         </a>
     </div>
 
