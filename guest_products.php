@@ -31,7 +31,7 @@ include 'guestheader.php';
                                 <?= $total['platform']; ?>
                             </div>
                     </a>
-                    <p class="text-danger fw-bold mb-3"><?= $total['price']; ?></p>
+                    <p class="text-danger fw-bold mb-3">Rs. <?= $total['price']; ?></p>
                     <button class="btn btn-danger w-100 mt-auto">
                         <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
                     </button>
