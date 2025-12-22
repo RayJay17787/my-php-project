@@ -1,30 +1,13 @@
 <?php
 session_start();
 
+$id = $_GET['id'];
+
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
+$query = "SELECT * FROM products WHERE id = $id";
+$result = mysqli_query($conn, $query);
 
-if (isset($_POST['submitButton'])) {
-
-    $disc = $_POST['discname'];
-    $company = $_POST['company'];
-    $platform = $_POST['platform'];
-    $genre = $_POST['genre'];
-    $price = $_POST['price'];
-    $stock = $_POST['stock'];
-    $image = $_POST['image'];
-
-    $query = "INSERT INTO products(name,company,platform,genre,price,stock,image) values('$disc','$company','$platform','$genre','$price','$stock','$image')";
-
-    mysqli_query($conn, $query);
-
-    header("Location: xboxdiscs.php");
-    exit();
-}
-
-if (isset($_POST['cancelButton'])){
-    header("Location: xboxdiscs.php");
-    exit();
-}
+$total = mysqli_fetch_assoc($result);
 
 include 'adminheader.php';
 ?>
@@ -37,15 +20,18 @@ include 'adminheader.php';
                     GAMEVAULT</h1>
 
                 <div class="card p-3 p-md-4">
-                    <h2 class="fw-bold fs-4 text-center">Add A Xbox Disc</h2>
+                    <h2 class="fw-bold fs-4 text-center">Edit Info For <?= $total['name']; ?></h2>
                     <hr class="mb-3 mt-3">
 
-                    <form action="" method="POST">
+                    <form action="update_nintendodiscs.php" method="POST">
+
+                        <input name="id" type="text" value="<?= $total['id'];?>" hidden>
+
                         <div class="row g-2 mb-3">
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Disc Name</span>
                                 <input type="text" class="form-control" id="disc_name" name="discname"
-                                    placeholder="Disc name">
+                                    placeholder="Disc name" value="<?= $total['name']; ?>">
                             </div>
                             <span id="disc_error" class="text-danger small"></span>
                         </div>
@@ -54,7 +40,7 @@ include 'adminheader.php';
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Company</span>
                                 <input type="text" class="form-control" id="company" name="company"
-                                    placeholder="Company">
+                                    placeholder="Company" value="<?= $total['company']; ?>">
                             </div>
                             <span id="company_error" class="text-danger small"></span>
                         </div>
@@ -63,7 +49,7 @@ include 'adminheader.php';
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Platform</span>
                                 <input type="text" class="form-control" id="platform" name="platform"
-                                    value="Xbox" readonly>
+                                    value="Nintendo" readonly>
                             </div>
                             <span id="platform_error" class="text-danger small"></span>
                         </div>
@@ -72,7 +58,7 @@ include 'adminheader.php';
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Genre</span>
                                 <input type="text" class="form-control" id="genre" name="genre"
-                                    placeholder="Genre">
+                                    placeholder="Genre" value="<?= $total['genre']; ?>">
                             </div>
                             <span id="genre_error" class="text-danger small"></span>
                         </div>
@@ -81,7 +67,7 @@ include 'adminheader.php';
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Price</span>
                                 <input type="text" class="form-control" id="price" name="price"
-                                    placeholder="Price">
+                                    placeholder="Price" value="<?= $total['price']; ?>">
                             </div>
                             <span id="price_error" class="text-danger small"></span>
                         </div>
@@ -90,7 +76,7 @@ include 'adminheader.php';
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Stock</span>
                                 <input type="text" class="form-control" id="stock" name="stock"
-                                    placeholder="Stock">
+                                    placeholder="Stock" value="<?= $total['stock']; ?>">
                             </div>
                             <span id="stock_error" class="text-danger small"></span>
                         </div>
@@ -99,15 +85,15 @@ include 'adminheader.php';
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Image</span>
                                 <input type="text" class="form-control" id="image" name="image"
-                                    placeholder="Image">
+                                    placeholder="Image" value="<?= $total['image']; ?>">
                             </div>
                             <span id="image_error" class="text-danger small"></span>
                         </div>
 
                         <div class="text-center mb-3 ">
-                            <button name="submitButton" type="submit" onclick="formsub(event)" class="btn btn-success px-4 px-md-5 mt-3">Add Disc</button>
-                            <a href="xboxdiscs.php">
-                                <button name="cancelButton" type="button" onclick="return confirm ('Are you sure?')" class="btn btn-danger px-4 px-md-5 mt-3">Cancel</button>
+                            <button name="submitButton" type="submit" onclick="formsub(event)" class="btn btn-success px-4 px-md-5 mt-3">Edit <?= $total['name'] ?></button>
+                            <a href="nintendodiscs.php">
+                                <button name="cancelButton" type="button" onclick="return confirm('Are you sure?')" class="btn btn-danger px-4 px-md-5 mt-3">Cancel</button>
                             </a>
                             </div>
                     </form>

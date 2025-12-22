@@ -17,12 +17,12 @@ if (isset($_POST['submitButton'])) {
 
     mysqli_query($conn, $query);
 
-    header("Location: xboxdiscs.php");
+    header("Location: nintendodiscs.php");
     exit();
 }
 
 if (isset($_POST['cancelButton'])){
-    header("Location: xboxdiscs.php");
+    header("Location: nintendodiscs.php");
     exit();
 }
 
@@ -37,7 +37,7 @@ include 'adminheader.php';
                     GAMEVAULT</h1>
 
                 <div class="card p-3 p-md-4">
-                    <h2 class="fw-bold fs-4 text-center">Add A Xbox Disc</h2>
+                    <h2 class="fw-bold fs-4 text-center">Add A Nintendo Disc</h2>
                     <hr class="mb-3 mt-3">
 
                     <form action="" method="POST">
@@ -63,7 +63,7 @@ include 'adminheader.php';
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Platform</span>
                                 <input type="text" class="form-control" id="platform" name="platform"
-                                    value="Xbox" readonly>
+                                    value="Nintendo" readonly>
                             </div>
                             <span id="platform_error" class="text-danger small"></span>
                         </div>
@@ -106,7 +106,7 @@ include 'adminheader.php';
 
                         <div class="text-center mb-3 ">
                             <button name="submitButton" type="submit" onclick="formsub(event)" class="btn btn-success px-4 px-md-5 mt-3">Add Disc</button>
-                            <a href="xboxdiscs.php">
+                            <a href="nintendodiscs.php">
                                 <button name="cancelButton" type="button" onclick="return confirm ('Are you sure?')" class="btn btn-danger px-4 px-md-5 mt-3">Cancel</button>
                             </a>
                             </div>
