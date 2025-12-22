@@ -9,6 +9,7 @@
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body style="font-family: 'Montreal', sans-serif;" class="d-flex flex-column min-vh-100">
