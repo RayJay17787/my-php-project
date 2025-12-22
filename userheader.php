@@ -49,7 +49,7 @@
                     <a class="nav-link text-white fs-6 fw-semibold" href="user.php">Home</a>
                 </li>
                 <li class="nav-item form-text">
-                    <a class="nav-link text-white fs-6 fw-semibold" href="products.php">Product</a>
+                    <a class="nav-link text-white fs-6 fw-semibold" href="user_products.php">Product</a>
                 </li>
                 <li class="nav-item form-text">
                     <a class="nav-link text-white fs-6 fw-semibold" href="contact.php">Contact</a>

@@ -37,7 +37,7 @@
                     <a class="nav-link text-white fs-6 fw-semibold" href="storefront.php">Home</a>
                 </li>
                 <li class="nav-item form-text">
-                    <a class="nav-link text-white fs-6 fw-semibold" href="products.php">Product</a>
+                    <a class="nav-link text-white fs-6 fw-semibold" href="guest_products.php">Product</a>
                 </li>
                 <li class="nav-item form-text">
                     <a class="nav-link text-white fs-6 fw-semibold" href="contact.php">Contact</a>
@@ -98,12 +98,16 @@
         <div class="offcanvas-body p-0">
             <div class="text-center py-5">
                 <i class="fa-solid fa-cart-shopping fs-1 text-muted mb-3"></i>
-                <p class="text-muted">Your cart is empty</p>
+                <p class="text-muted">
+                    Your cart is empty <br>
+                    Sign In to Purchase! <br><br>
+                    <a href="signin.php">
+                        <button class="btn btn-primary btn-sm">Sign In</button>
+                    </a>
+                </p>
             </div>
         </div>
     </div>
-
-
 </body>
 
 </html>
