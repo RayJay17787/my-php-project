@@ -51,7 +51,7 @@ include 'adminheader.php';
                             <button class="btn btn-warning btn-sm">Edit</button>
                         </a>
                         <a href="delete_ps4discs.php?id=<?= $total['id']; ?>">
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</button>
                         </a>
                     </td>
                 </tr>

@@ -91,7 +91,10 @@ include 'adminheader.php';
                         </div>
 
                         <div class="text-center mb-3 ">
-                            <button name="submitButton" type="submit" onclick="formsub(event)" class="btn btn-dark px-4 px-md-5 mt-3">Edit <?= $total['name'] ?></button>
+                            <button name="submitButton" type="submit" onclick="formsub(event)" class="btn btn-success px-4 px-md-5 mt-3">Edit <?= $total['name'] ?></button>
+                            <a href="ps5discs.php">
+                                <button name="cancelButton" type="" onclick="return confirm ('Are you sure?')" class="btn btn-danger px-4 px-md-5 mt-3">Cancel</button>
+                            </a>
                         </div>
                     </form>
                 </div>
