@@ -1,12 +1,12 @@
 <?php
-    session_start();
-    $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
+session_start();
+$conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
-    if(!isset($_SESSION['customer'])){
-        header("Location: signin.php");
-        exit();
-    }
-    $user = $_SESSION['customer'];
+if (!isset($_SESSION['customer'])) {
+    header("Location: signin.php");
+    exit();
+}
+$user = $_SESSION['customer'];
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +18,9 @@
     <title>Game Vault - Navigation</title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -56,7 +59,7 @@
                 </li>
                 <li class="nav-item form-text">
                     <a class="nav-link text-white fs-6 fw-semibold" href="signin.php">
-                        <i class="fa-solid fa-right-to-bracket me-1"></i><?= $user['name'];?>
+                        <i class="fa-solid fa-right-to-bracket me-1"></i><?= $user['name']; ?>
                     </a>
                 </li>
                 <li class="nav-item form-text">
@@ -115,7 +118,12 @@
         </div>
     </div>
 
-
+    <script>
+        history.pushState(null, null, location.href);
+        window.onpopstate = function() {
+            history.go(1);
+        };
+    </script>
 </body>
 
 </html>

@@ -1,7 +1,8 @@
 <?php
+
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
-  if(isset($_POST['signinButton'])){
+if (isset($_POST['signinButton'])) {
     session_start();
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -16,36 +17,44 @@ $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
     $customerRow = mysqli_num_rows($customerResult);
 
 
-    if($adminRow == 1){
-      $admin = mysqli_fetch_assoc($adminResult);
-      $_SESSION['admin'] = $admin;
+    if ($adminRow == 1) {
+        $admin = mysqli_fetch_assoc($adminResult);
+        $_SESSION['admin'] = $admin;
 
-      header("Location: dashboard.php");
-      exit();
-    }
-    elseif($customerRow == 1){
-      $customer = mysqli_fetch_assoc($customerResult);
-      $_SESSION['customer'] = $customer;
+        header("Location: dashboard.php");
+        exit();
+    } elseif ($customerRow == 1) {
+        $customer = mysqli_fetch_assoc($customerResult);
+        $_SESSION['customer'] = $customer;
 
-      header("Location: user.php");
-      exit();
+        header("Location: user.php");
+        exit();
+    } else {
+        header("Location: signin.php?error=1");
+        exit();
     }
-    else{
-      header("Location: signin.php?error=1");
-      exit();
-    }
-  }
+}
 
-  if(isset($_GET['error'])){
+if (isset($_SESSION['$admin'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+
+if (isset($_SESSION['customer'])) {
+    header("Location: user.php");
+    exit();
+}
+
+if (isset($_GET['error'])) {
     echo "<script>
       alert('User Not Found')
       window.history.replaceState({}, document.title, 'signin.php')
     </script>";
-  }
+}
 
 
 include 'guestheader.php'
-    ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +63,10 @@ include 'guestheader.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GAMEVAULT - Sign In</title>
-     <style>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <style>
         body {
             background-image: url('images/ChatGPT%20Image%20Dec%209,%202025,%2002_36_10%20PM.png');
             background-size: cover;
@@ -67,7 +79,7 @@ include 'guestheader.php'
 
 </head>
 
-<body >
+<body>
 
     <div class="container pt-3 pt-md-5 pb-3 pb-md-5 py-5 mt-5">
         <div class="row justify-content-center">
@@ -123,8 +135,7 @@ include 'guestheader.php'
                     document.getElementById('email_error').innerHTML = "enter valid value please"
                     event.preventDefault();
                 }
-            }
-            else {
+            } else {
                 document.getElementById('email_error').innerHTML = "enter email value please"
                 event.preventDefault();
             }
@@ -137,8 +148,7 @@ include 'guestheader.php'
                     document.getElementById('password_error').innerHTML = "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:"
                     event.preventDefault();
                 }
-            }
-            else {
+            } else {
                 document.getElementById('password_error').innerHTML = "enter password please"
                 event.preventDefault();
             }
@@ -149,4 +159,4 @@ include 'guestheader.php'
 </html>
 <?php
 include 'footer.php'
-    ?>
+?>

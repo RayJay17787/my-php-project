@@ -25,7 +25,7 @@ include 'adminheader.php';
 
                     <form action="update_ps5discs.php" method="POST">
 
-                        <input name="id" type="text" value="<?= $total['id'];?>" hidden>
+                        <input name="id" type="text" value="<?= $total['id']; ?>" hidden>
 
                         <div class="row g-2 mb-3">
                             <div class="input-group col-12 col-sm-6 w-100">
@@ -49,7 +49,7 @@ include 'adminheader.php';
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Platform</span>
                                 <input type="text" class="form-control" id="platform" name="platform"
-                                    value="Playstation 5" readonly>
+                                    value="<?= $total['platform']; ?>">
                             </div>
                             <span id="platform_error" class="text-danger small"></span>
                         </div>
@@ -83,19 +83,21 @@ include 'adminheader.php';
 
                         <div class="row g-2 mb-3">
                             <div class="input-group col-12 col-sm-6 w-100">
-                                <span class="input-group-text">Image</span>
-                                <input type="text" class="form-control" id="image" name="image"
-                                    placeholder="Image" value="<?= $total['image']; ?>">
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <input type="file" class="form-control" id="image" name="image"
+                                        placeholder="Image" value="images/<?= $total['image']; ?>">
+                                    <img src="images/<?= $total['image']; ?>" style="width: 100px; height: 100px; border-radius: 5px;">
+                                    <span>Name: <?= $total['image']; ?></span>
+                                </div>
+                                <span id="image_error" class="text-danger small"></span>
                             </div>
-                            <span id="image_error" class="text-danger small"></span>
-                        </div>
 
-                        <div class="text-center mb-3 ">
-                            <button name="submitButton" type="submit" onclick="formsub(event)" class="btn btn-success px-4 px-md-5 mt-3">Edit <?= $total['name'] ?></button>
-                            <a href="ps5discs.php">
-                                <button name="cancelButton" type="button" onclick="return confirm ('Are you sure?')" class="btn btn-danger px-4 px-md-5 mt-3">Cancel</button>
-                            </a>
-                        </div>
+                            <div class="text-center mb-3 ">
+                                <button name="submitButton" type="submit" onclick="formsub(event)" class="btn btn-success px-4 px-md-5 mt-3">Edit <?= $total['name'] ?></button>
+                                <a href="ps5discs.php">
+                                    <button name="cancelButton" type="button" onclick="return confirm ('Are you sure?')" class="btn btn-danger px-4 px-md-5 mt-3">Cancel</button>
+                                </a>
+                            </div>
                     </form>
                 </div>
             </div>

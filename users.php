@@ -11,16 +11,16 @@
     include 'adminheader.php';
 ?>
 
-<div class="container my-5 py-5">
-    <h1 class="text-center mb-4"><b>User Table</b></h1>
+<div class="container-fluid px-4 pt-2">
+    <h1 class="text-center mb-4"><b>Users</b></h1>
 
     <div class="text-end me-2">
         <a href="create_users.php">
             <button class="btn btn-success rounded-pill mb-4">+ Add User</button>
         </a>
     </div>
-
-    <table class="table table-bordered text-center table-hover">
+<div class="table-responsive">
+    <table class="table text-center table-hover">
         <thead class="table-dark">
             <th>ID</th>
             <th>Name</th>
@@ -59,6 +59,7 @@
             
         </tbody>
     </table>
+</div>
 </div>
 
 <?php

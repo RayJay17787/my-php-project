@@ -62,8 +62,7 @@ include 'adminheader.php';
                         <div class="row g-2 mb-3">
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Platform</span>
-                                <input type="text" class="form-control" id="platform" name="platform"
-                                    value="Playstation 5" readonly>
+                                <input type="text" class="form-control" id="platform" name="platform" placeholder="PS5/PS4/Xbox/Nintendo">
                             </div>
                             <span id="platform_error" class="text-danger small"></span>
                         </div>
@@ -98,8 +97,8 @@ include 'adminheader.php';
                         <div class="row g-2 mb-3">
                             <div class="input-group col-12 col-sm-6 w-100">
                                 <span class="input-group-text">Image</span>
-                                <input type="text" class="form-control" id="image" name="image"
-                                    placeholder="Image">
+                                <input type="file" class="form-control" id="image" name="image"
+                                    placeholder="Image" >
                             </div>
                             <span id="image_error" class="text-danger small"></span>
                         </div>
