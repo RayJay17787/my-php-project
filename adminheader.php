@@ -1,5 +1,4 @@
 <?php
-    // session_start();
     $conn = mysqli_connect('localhost','root','','gaming_store');
 
     if(!isset($_SESSION['admin'])){
@@ -31,7 +30,7 @@
 <body>
 
     <div class="sidebar">
-        <div class="text-white p-3" style="background:#08010e; height:70px;">
+        <div class="text-white p-3" style="background: black; height:70px;">
             <h5 class="mt-1 text-center"><b><i>GAME</i>VAULT</b></h5>
         </div>
 
@@ -66,7 +65,7 @@
                 <a class="nav-link text-white" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="user_products.php">Product</a>
+                <a class="nav-link text-white" href="admin_products.php">Product</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="#">Contact</a>
