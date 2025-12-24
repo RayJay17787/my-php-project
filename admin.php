@@ -56,7 +56,3 @@ include 'adminheader.php';
         </table>
     </div>
 </div>
-
-<?php
-include 'footer.php';
-?>

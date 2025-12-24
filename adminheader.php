@@ -68,7 +68,7 @@
                 <a class="nav-link text-white" href="admin_products.php">Product</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Contact</a>
+                <a class="nav-link text-white" href="contact.php">Contact</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="#">

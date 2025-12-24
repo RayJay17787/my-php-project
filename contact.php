@@ -1,5 +1,26 @@
 <?php
-include 'userheader.php'
+session_start();
+
+if (isset($_SESSION['admin'])) {
+    $admin = $_SESSION['admin'];
+    $loggedin = 'admin';
+    include 'adminheader.php';
+
+    if (isset($_POST['cancelButton'])) {
+        header("Location: dashboard.php");
+        exit();
+    }
+} elseif (isset($_SESSION['customer'])) {
+    $user = $_SESSION['customer'];
+    $loggedin = 'user';
+    include 'userheader.php';
+
+    if (isset($_POST['cancelButton'])) {
+        header("Location: user.php");
+        exit();
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +33,7 @@ include 'userheader.php'
 
 <body>
 
-    <div class="container my-5 py-5 mt-5">
+    <div class="container-fluid px-4 pt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <center><I>
@@ -21,28 +42,62 @@ include 'userheader.php'
                 <div style="border: none;" class="card border rounded shadow">
                     <h3 class="d-flex justify-content-center mt-3">Contact form</h3>
                     <div class="card-body">
-                        <form>
+                        <form method="POST">
                             <div class="input-group mb-3">
-                                <!--<label class="form-label">Name</label>
-                                <input type="text" class="form-control" placeholder="Enter your name">-->
-                                <span class="input-group-text">Name</span>
-                                <input type="text" class="form-control" placeholder="Enter your name">
+                                <?php
+                                if ($loggedin == 'admin') {
+                                ?>
+                                    <span class="input-group-text">Name</span>
+                                    <input value="<?= $admin['username']; ?>" type="text" class="form-control" placeholder="Enter your name">
+
+                                <?php
+                                } else {
+                                ?>
+                                    <span class="input-group-text">Name</span>
+                                    <input type="text" value="<?= $user['name']; ?>" class="form-control" placeholder="Enter your name">
+
+                                <?php
+                                }
+                                ?>
                             </div>
                             <div class="input-group mb-3">
-                                <!--<label class="form-label">Email</label>
-                                <input type="email" class="form-control" placeholder="Enter your email">-->
-                                <span class="input-group-text">Email</span>
-                                <input type="text" class="form-control" placeholder="Enter your email">
+                                <?php
+                                if ($loggedin == 'admin') {
+                                ?>
+                                    <span class="input-group-text">Email</span>
+                                    <input type="text" value="<?= $admin['email']; ?>" class="form-control" placeholder="Enter your email">
+
+                                <?php
+                                } else { ?>
+                                    <span class="input-group-text">Email</span>
+                                    <input type="text" value="<?= $user['email']; ?>" class="form-control" placeholder="Enter your email">
+                                <?php
+                                }
+                                ?>
                             </div>
                             <div class="input-group mb-3">
-                                <!--<label class="form-label">Contact</label>
-                                <input type="text" class="form-control" placeholder="Enter contact number">-->
-                                <span class="input-group-text">Contact</span>
-                                <input type="text" class="form-control" placeholder="Enter your contact">
+                                <?php
+                                if ($loggedin == 'admin') {
+                                ?>
+                                    <span class="input-group-text">Contact</span>
+                                    <input type="text" class="form-control" placeholder="Enter your email">
+
+                                <?php
+                                } else { ?>
+                                    <span class="input-group-text">Contact</span>
+                                    <input type="text" value="<?= $user['phone']; ?>" class="form-control" placeholder="Enter your email">
+                                <?php
+                                }
+                                ?>
                             </div>
-                            <button type="submit" class="btn btn-danger w-100">
-                                Submit
-                            </button>
+                            <div class="input-group mb-4">
+                                <span class="input-group-text">Description</span>
+                                <input style="height: 100px;" type="text" class="form-control">
+                            </div>
+                            <div class="d-flex justify-content-center gap-2">
+                                <button name="submitButton" type="submit" class="btn btn-success w-50">Submit</button>
+                                <button name="cancelButton" type="submit" class="btn btn-danger w-50">Cancel</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -52,6 +107,9 @@ include 'userheader.php'
 </body>
 
 </html>
+
 <?php
-include 'footer.php';
+if($loggedin == 'user'){
+   include 'footer.php'; 
+}
 ?>

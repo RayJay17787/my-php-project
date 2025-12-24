@@ -42,7 +42,3 @@ include 'adminheader.php';
 </body>
 
 </html>
-<?php
-include 'footer.php';
-
-?>
