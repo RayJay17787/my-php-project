@@ -32,7 +32,7 @@
 
     <div class="sidebar">
         <div class="text-white p-3" style="background:#08010e; height:70px;">
-            <h5 class="mt-1 text-center"><b>Admin Panel</b></h5>
+            <h5 class="mt-1 text-center"><b><?php $user['username'];?>'s Admin Panel</b></h5>
         </div>
 
         <div class="list-group list-group-flush">
