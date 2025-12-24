@@ -1,4 +1,7 @@
 <?php 
+session_start();
+$conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
+
 include 'userheader.php'; 
 ?>
 
@@ -44,7 +47,7 @@ style="height: 620px; ">
 
   <div class="card border shadow-sm h-100">
    <a class="text-decoration-none text-dark" href="">  
-     <img src="images/images (2).jpg"  class="card-img-top"  alt="Product" style="height: 300px; ">
+     <img src="images/" class="card-img-top"  alt="Product" style="height: 300px; "> <!--src="images/images (2).jpg"-->
 
       <div class="card-body d-flex flex-column  ">
           <div class="card-title" style="min-height: 48px;">Red Dead Redemption 2 PS4</div>
