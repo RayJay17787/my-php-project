@@ -36,9 +36,7 @@ if (isset($_SESSION['admin'])) {
     <div class="container-fluid px-4 pt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <center><I>
-                        <h1 class="fw-bold mb-4">GAMEVAULT</h1>
-                    </I></center>
+                <center><h1 class="fw-bold mb-4"><i>GAME</i>VAULT</h1></center>
                 <div style="border: none;" class="card border rounded shadow">
                     <h3 class="d-flex justify-content-center mt-3">Contact form</h3>
                     <div class="card-body">

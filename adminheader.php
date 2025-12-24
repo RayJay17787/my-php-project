@@ -71,7 +71,7 @@
                 <a class="nav-link text-white" href="contact.php">Contact</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">
+                <a class="nav-link text-white" href="profile.php">
                     <i class="fa-solid fa-user me-1"></i><?= $user['username'];?>
                 </a>
             </li>
