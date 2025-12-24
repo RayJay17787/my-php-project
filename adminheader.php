@@ -1,3 +1,15 @@
+<?php
+    session_start();
+    $conn = mysqli_connect('localhost','root','','gaming_store');
+
+    if(!isset($_SESSION['admin'])){
+        header("Location: siginin.php");
+        exit();
+    }
+
+        $user = $_SESSION('admin');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,7 +73,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="#">
-                    <i class="fa-solid fa-user me-1"></i> Rayyan Sheikh
+                    <i class="fa-solid fa-user me-1"></i><?= $user['username'];?>
                 </a>
             </li>
             <li class="nav-item">
