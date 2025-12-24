@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    // session_start();
     $conn = mysqli_connect('localhost','root','','gaming_store');
 
     if(!isset($_SESSION['admin'])){
@@ -7,7 +7,7 @@
         exit();
     }
 
-        $user = $_SESSION('admin');
+        $user = $_SESSION['admin'];
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@
 
     <div class="sidebar">
         <div class="text-white p-3" style="background:#08010e; height:70px;">
-            <h5 class="mt-1 text-center"><b><?php $user['username'];?>'s Admin Panel</b></h5>
+            <h5 class="mt-1 text-center"><b><i>GAME</i>VAULT</b></h5>
         </div>
 
         <div class="list-group list-group-flush">
@@ -50,7 +50,7 @@
     </div>
 
     <nav class="navbar topbar px-4">
-        <a class="navbar-brand text-white fw-bold fs-4" href="#"><i>GAME</i>VAULT</a>
+        <a class="navbar-brand text-white fw-bold fs-4" href="#"></a>
 
         <form class="d-flex mx-auto" style="width:500px;">
             <div class="input-group">
