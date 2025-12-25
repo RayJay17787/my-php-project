@@ -29,7 +29,7 @@ include 'adminheader.php';
 <body>
     <div class="container my-5 py-5">
         <center>
-            <h1>Welcome, <?php echo $admin['username']; ?>!, This is the dashboard!</h1>
+            <h1>Welcome, <?php echo $admin['username']; ?>! <br><br> This is the dashboard!</h1>
         </center>
     </div>
 

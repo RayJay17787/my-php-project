@@ -13,7 +13,7 @@ include 'adminheader.php';
 ?>
 
 <body>
-    <div class="container pt-3 pt-md-5 pb-3 pb-md-5  mt-5">
+    <div class="container pt-3 pt-md-5 pb-3 pb-md-5 mt-5">
         <div class="row justify-content-center">
             <div class=" col-md-8 col-lg-6 ">
                 <h1 class="text-dark fw-bold text-center mb-3 mb-md-4" style="font-size: 48px; font-style: italic;">
