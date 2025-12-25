@@ -16,12 +16,12 @@
 
 
     <div class="fixed-top" style="background-color: #020003;">
-        <nav class="navbar">
+        <nav class="navbar shadow" style="height: 75px;">
             <button class="btn btn-link text-white form-text" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#sidebar">
                 <i class="fa-solid fa-bars fw-bold fs-4"></i>
             </button>
-            <a class="navbar-brand ms-2 text-white fw-bold fst-italic form-text ms-3 fs-4" href="storefront.php">GAMEVAULT</a>
+            <a class="navbar-brand ms-2 text-white fw-bold form-text ms-3 fs-4" href="storefront.php"><i>GAME</i>VAULT</a>
 
             <form class="d-flex mx-auto" style="width: 500px;">
                 <div class="input-group">

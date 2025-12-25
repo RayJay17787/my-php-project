@@ -103,5 +103,5 @@ include 'adminheader.php';
 </div>
 
 <?php
-include 'footer.php';
+// include 'footer.php';
 ?>

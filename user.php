@@ -5,20 +5,20 @@ $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 include 'userheader.php'; 
 ?>
 
-<div id="promobanner" class="carousel slide" data-bs-ride="carousel" style="margin-top: 70px;">
-<div class="carousel-inner w-100">
+<div id="promobanner" class="carousel slide" data-bs-ride="carousel" style="margin-top: 70px; min-height: 100vh;">
+<div class="carousel-inner w-100 h-100">
+<!-- <div class="carousel-inner w-100"> -->
 
 <div class="carousel-item active">
-    <img src="images/60bd647d-0f8f-49f6-b53c-90370462d209.jpg" class="w-100" alt="sale"
-style="height: 620px; ">
+    <img src="images/60bd647d-0f8f-49f6-b53c-90370462d209.jpg" class="w-100" alt="sale" style="height: 100vh; object-fit: cover;">
 </div>
 
 <div class="carousel-item">
-     <img src="images/1.jpg" class="w-100" alt="xbox" style="height: 620px; ">
+     <img src="images/1.jpg" class="w-100" alt="xbox" style="height: 100vh; object-fit: cover;">
 </div>
 
 <div class="carousel-item">
-    <img src="images/cb44e938bef3d877aa115fdba8968b18.jpg" class="w-100" alt="ps5" style="height: 620px;">
+    <img src="images/cb44e938bef3d877aa115fdba8968b18.jpg" class="w-100" alt="ps5" style="height: 100vh; object-fit: cover;">
 </div>
 
 </div>
@@ -31,7 +31,7 @@ style="height: 620px; ">
         <span class="carousel-control-next-icon"></span>
         </button>
     </div>
-  <div class="container my-5">
+  <div class="container-fluid px-4 pt-2">
 
         <div class="d-flex justify-content-between align-items-center mb-4">
 
