@@ -2,30 +2,40 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
-if(isset($_GET['filter'])){
+if (isset($_GET['filter'])) {
     $filter = $_GET['filter'];
 
-    if($filter == 'ps5'){
-        $query = "SELECT * FROM products WHERE platform = 'Playstation 5'";
+    if ($filter == 'ps5') {
+        $query = "SELECT * FROM products WHERE platform = 'Playstation 5' AND status = 'active'";
+    } 
+    
+    elseif ($filter == 'ps4') {
+        $query = "SELECT * FROM products WHERE platform = 'Playstation 4' AND status = 'active'";
+    } 
+    
+    elseif ($filter == 'xbox') {
+        $query = "SELECT * FROM products WHERE platform = 'Xbox' AND status = 'active'";
+    } 
+    
+    elseif ($filter == 'nintendo') {
+        $query = "SELECT * FROM products WHERE platform = 'Nintendo' AND status = 'active'";
+    } 
+    
+    elseif ($filter == 'clear') {
+        $query = "SELECT * FROM products WHERE status = 'active'";
+    } 
+    
+    elseif ($filter == 'dlt') {
+        $query = "SELECT * FROM products WHERE status = 'inactive'";
+    } 
+    
+    else {
+        $query = "SELECT * FROM products WHERE status = 'active'";
     }
-    elseif($filter == 'ps4'){
-        $query = "SELECT * FROM products WHERE platform = 'Playstation 4'";
-    }
-    elseif($filter == 'xbox'){
-        $query = "SELECT * FROM products WHERE platform = 'Xbox'";
-    }
-    elseif($filter == 'nintendo'){
-        $query = "SELECT * FROM products WHERE platform = 'Nintendo'";
-    }
-    elseif($filter == 'clear'){
-        $query = "SELECT * FROM products";
-    }
-    else{
-        $query = "SELECT * FROM products";
-    }
-}
-else{
-    $query = "SELECT * FROM products";
+} 
+
+else {
+    $query = "SELECT * FROM products WHERE status = 'active'";
 }
 
 $result = mysqli_query($conn, $query);
@@ -40,14 +50,20 @@ include 'adminheader.php';
     <div class="d-flex justify-content-end gap-2">
         <div class="dropdown">
             <button class="btn btn-success dropdown-toggle rounded-pill" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-filter me-2"></i>Filter           </button>
+                <i class="fa-solid fa-filter me-2"></i>Filter </button>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="?filter=ps5"><i class="fa-brands fa-playstation me-2"></i> Playstation 5 Games</a></li>
                 <li><a class="dropdown-item" href="?filter=ps4"><i style="color: blue;" class="fa-brands fa-playstation me-2"></i> Playstation 4 Games</a></li>
                 <li><a class="dropdown-item" href="?filter=xbox"><i style="color: green;" class="fa-brands fa-xbox me-2"></i> Xbox Games</a></li>
                 <li><a class="dropdown-item" href="?filter=nintendo"><i style="color: red;" class="fa-solid fa-gamepad me-2"></i> Nintendo Games</a></li>
-                <li><hr class="dropdown-divider"></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
                 <li><a class="dropdown-item" href="?filter=clear"><i style="color: black;" class="fa-solid fa-xmark"></i> Clear</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="?filter=dlt"><i style="color: black;" class="fa-solid fa-trash"></i> Deleted Items</a></li>
             </ul>
         </div>
         <a href="create_ps5discs.php">
@@ -66,6 +82,7 @@ include 'adminheader.php';
                 <th>Genre</th>
                 <th>Price</th>
                 <th>Stock</th>
+                <th>Status</th>
                 <th>Actions</th>
             </thead>
             <tbody>
@@ -80,23 +97,36 @@ include 'adminheader.php';
                         <td><img src="images/<?= $total['image'] ?>" width="80" height="80"></td>
                         <td><?= $total['name'] ?></td>
                         <td><?= $total['company'] ?></td>
-                        <td><?= $total['platform'];?></td>
+                        <td><?= $total['platform']; ?></td>
                         <td><?= $total['genre'] ?></td>
                         <td><?= $total['price'] ?></td>
                         <td><?= $total['stock'] ?></td>
+                        <td><?= $total['status'] ?></td>
                         <td>
                             <a href="edit_ps5discs.php?id=<?= $total['id']; ?>">
                                 <button class="btn btn-warning btn-sm">Edit</button>
                             </a>
-                            <a href="delete_ps5discs.php?id=<?= $total['id']; ?>">
-                                <button onclick="return confirm ('Are you sure you want to delete <?= $total['name'];?>?')" class="btn btn-danger btn-sm">Delete</button>
+                            <?php
+                            if (isset($_GET['filter']) && $_GET['filter'] == 'dlt') {
+                            ?>
+                            <a href="undo_product_delete.php?id=<?= $total['id'];?>">
+                                <button name="undoButton" onclick="return confirm ('Are you sure you want to restore <?= $total['name']; ?>?')" class="btn btn-secondary btn-sm">Restore</button>
                             </a>
+                            <?php
+                            } else {
+                            ?>
+                                <a href="delete_ps5discs.php?id=<?= $total['id']; ?>">
+                                    <button name="deleteButton" onclick="return confirm ('Are you sure you want to delete <?= $total['name']; ?>?')" class="btn btn-danger btn-sm">Delete</button>
+                                </a>
+                            <?php
+                            }
+                            ?>
                         </td>
                     </tr>
                 <?php
                 }
                 ?>
-    
+
             </tbody>
         </table>
     </div>
