@@ -45,31 +45,36 @@ include 'adminheader.php';
 ?>
 
 <div class="container-fluid px-4 pt-2">
-    <h1 class="text-center mb-4"><b>Disc Listing</b></h1>
+    <h1 class="text-center mb-4"><b>All Available Discs</b></h1>
 
-    <div class="d-flex justify-content-end gap-2">
-        <div class="dropdown">
-            <button class="btn btn-success dropdown-toggle rounded-pill" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-filter me-2"></i>Filter </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="?filter=ps5"><i class="fa-brands fa-playstation me-2"></i> Playstation 5 Games</a></li>
-                <li><a class="dropdown-item" href="?filter=ps4"><i style="color: blue;" class="fa-brands fa-playstation me-2"></i> Playstation 4 Games</a></li>
-                <li><a class="dropdown-item" href="?filter=xbox"><i style="color: green;" class="fa-brands fa-xbox me-2"></i> Xbox Games</a></li>
-                <li><a class="dropdown-item" href="?filter=nintendo"><i style="color: red;" class="fa-solid fa-gamepad me-2"></i> Nintendo Games</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="?filter=clear"><i style="color: black;" class="fa-solid fa-xmark"></i> Clear</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="?filter=dlt"><i style="color: black;" class="fa-solid fa-trash"></i> Deleted Items</a></li>
-            </ul>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h6 class="mb-0">Total Count: <?= $row ?> Items</h6>
+        
+        <div class="d-flex gap-2">
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle rounded-pill" type="button" data-bs-toggle="dropdown">
+                    <i class="fa-solid fa-filter me-2"></i>Filter </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="?filter=ps5"><i class="fa-brands fa-playstation me-2"></i> Playstation 5 Games</a></li>
+                    <li><a class="dropdown-item" href="?filter=ps4"><i style="color: blue;" class="fa-brands fa-playstation me-2"></i> Playstation 4 Games</a></li>
+                    <li><a class="dropdown-item" href="?filter=xbox"><i style="color: green;" class="fa-brands fa-xbox me-2"></i> Xbox Games</a></li>
+                    <li><a class="dropdown-item" href="?filter=nintendo"><i style="color: red;" class="fa-solid fa-gamepad me-2"></i> Nintendo Games</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="?filter=clear"><i style="color: black;" class="fa-solid fa-xmark"></i> Clear</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="?filter=dlt"><i style="color: black;" class="fa-solid fa-trash"></i> Deleted Items</a></li>
+                </ul>
+            </div>
+            <a href="create_ps5discs.php">
+                <button class="btn btn-success rounded-pill">+ Add a Disc</button>
+            </a>
         </div>
-        <a href="create_ps5discs.php">
-            <button class="btn btn-success rounded-pill mb-4">+ Add a Disc</button>
-        </a>
     </div>
+
     <div class="table-responsive">
         <table class="table table-hover text-center">
             <thead class="table-dark">

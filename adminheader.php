@@ -7,6 +7,21 @@
     }
 
         $user = $_SESSION['admin'];
+
+        $user_query = "SELECT * FROM customers";
+        $admin_query = "SELECT * FROM users";
+        $order_query = "SELECT * FROM orders";
+        $product_query = "SELECT * FROM products";
+
+        $user_result = mysqli_query($conn, $user_query);
+        $admin_result = mysqli_query($conn, $admin_query);
+        $order_result = mysqli_query($conn, $order_query);
+        $product_result = mysqli_query($conn, $product_query);
+
+        $userRow = mysqli_num_rows($user_result);
+        $adminRow = mysqli_num_rows($admin_result);
+        $orderRow = mysqli_num_rows($order_result);
+        $productRow = mysqli_num_rows($product_result);
 ?>
 
 <!DOCTYPE html>
@@ -31,20 +46,22 @@
 
     <div class="sidebar">
         <div class="text-white p-3" style="background: black; height:70px;">
-            <h5 class="mt-1 text-center"><b><i>GAME</i>VAULT</b></h5>
+            <a href="dashboard.php" style="text-decoration: none; color: white;">
+                <h5 class="mt-1 text-center"><b><i>GAME</i>VAULT</b></h5>
+            </a>
         </div>
 
         <div class="list-group list-group-flush">
-            <a href="dashboard.php" class="list-group-item ps-4">
+            <a href="dashboard.php" class="list-group-item list-group-item-action ps-4 align-items-center">
                 <i class="fa-solid fa-grip me-2"></i> Dashboard</a>
-            <a href="users.php" class="list-group-item ps-4">
-                <i class="fa-solid fa-users me-2"></i> Users</a>
-            <a href="admin.php" class="list-group-item ps-4">
-                <i class="fa-solid fa-user-tie me-2"></i> Admins</a>
-            <a href="orders.php" class="list-group-item ps-4">
-                <i class="fa-solid fa-basket-shopping me-2"></i> Orders</a>
-            <a href="ps5discs.php" class="list-group-item ps-4">
-                <i class="fa-solid fa-bag-shopping me-2"></i> All Products</a>
+            <a href="users.php" class="list-group-item list-group-item-action ps-4 align-items-center">
+                <i class="fa-solid fa-users me-2"></i> Users <span class="badge bg-secondary rounded-pill"><?= $userRow;?></span></a>
+            <a href="admin.php" class="list-group-item list-group-item-action ps-4 align-items-center">
+                <i class="fa-solid fa-user-tie me-2"></i> Admins <span class="badge bg-secondary rounded-pill"><?= $adminRow;?></span></a>
+            <a href="orders.php" class="list-group-item list-group-item-action ps-4 align-items-center">
+                <i class="fa-solid fa-basket-shopping me-2"></i> Orders <span class="badge bg-secondary rounded-pill"><?= $orderRow;?></span></a>
+            <a href="ps5discs.php" class="list-group-item list-group-item-action ps-4 align-items-center">
+                <i class="fa-solid fa-bag-shopping me-2"></i> All Products <span class="badge bg-secondary rounded-pill"><?= $productRow;?></span></a>
         </div>
     </div>
 
@@ -62,7 +79,7 @@
 
         <ul class="navbar-nav flex-row gap-3">
             <li class="nav-item">
-                <a class="nav-link text-white" href="#">Home</a>
+                <a class="nav-link text-white" href="dashboard.php">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white" href="admin_products.php">Product</a>
