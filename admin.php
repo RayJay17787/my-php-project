@@ -75,19 +75,25 @@ include 'adminheader.php';
                         <td><?= $total['password']; ?></td>
                         <td><?= $total['email']; ?></td>
                         <td>
-                            <a href="edit_admin.php?id=<?= $total['id']; ?>">
+                            <!-- <a href="edit_admin.php?id=<?= $total['id']; ?>">
                                 <button class="btn btn-warning btn-sm">Edit</button>
-                            </a>
+                            </a> -->
                             <?php
                                 if(isset($_GET['filter']) && $_GET['filter'] == 'delAdmin'){
                                     ?>
                                         <a href="undo_admin_delete.php?id=<?= $total['id']; ?>">
-                                <button onclick="return confirm('Are you sure you want to restore <?= $total['username'];?>')" class="btn btn-secondary btn-sm">Restore</button>     
+                                            <button onclick="return confirm('Are you sure you want to restore <?= $total['username'];?>')" class="btn btn-secondary btn-sm">Restore</button>     
+                                            <a href="delete_admin_perm.php?id=<?= $total['id']; ?>">
+                                        <button onclick="return confirm('Are you sure you want to delete <?= $total['username'];?> permanently')" class="btn btn-danger btn-sm">Delete Permanently</button>
+                                    </a>
                                     <?php
                                 } else{
                                     ?>
+                                    <a href="edit_admin.php?id=<?= $total['id']; ?>">
+                                <button class="btn btn-warning btn-sm">Edit</button>
+                            </a>
                                         <a href="delete_admin.php?id=<?= $total['id']; ?>">
-                                <button onclick="return confirm('Are you sure you want to delete <?= $total['username'];?>')" class="btn btn-danger btn-sm">Delete</button>
+                                <button onclick="return confirm('Are you sure you want to remove <?= $total['username'];?>')" class="btn btn-danger btn-sm">Remove</button>
                                     <?php
                                 }
                             ?>

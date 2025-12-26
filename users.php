@@ -29,17 +29,19 @@ include 'adminheader.php';
         <div class="d-flex gap-2">
             <?php
             if (isset($_GET['filter']) && $_GET['filter'] == 'delUser') {
-            ?>
+                ?>
                 <a href="?users.php">
-                    <button class="btn btn-success rounded-pill mb-4"><i style="color: white;" class="fa-solid fa-trash"></i> Hide Deleted Users</button>
+                    <button class="btn btn-success rounded-pill mb-4"><i style="color: white;"
+                            class="fa-solid fa-trash"></i> Hide Deleted Users</button>
                 </a>
-            <?php
+                <?php
             } else {
-            ?>
+                ?>
                 <a href="?filter=delUser">
-                    <button class="btn btn-success rounded-pill mb-4"><i style="color: white;" class="fa-solid fa-trash"></i> Show Deleted Users</button>
+                    <button class="btn btn-success rounded-pill mb-4"><i style="color: white;"
+                            class="fa-solid fa-trash"></i> Show Deleted Users</button>
                 </a>
-            <?php
+                <?php
             }
             ?>
             <a href="create_users.php">
@@ -63,7 +65,7 @@ include 'adminheader.php';
                 <?php
                 for ($i = 0; $i < $row; $i++) {
                     $total = mysqli_fetch_assoc($result);
-                ?>
+                    ?>
                     <tr>
                         <td><?= $i + 1; ?></td>
                         <td><?= $total['name']; ?></td>
@@ -73,27 +75,34 @@ include 'adminheader.php';
                         <td><?= $total['password']; ?></td>
                         <td><?= $total['phone']; ?></td>
                         <td>
-                            <a href="edit_users.php?id=<?= $total['id']; ?>">
-                                <button class="btn btn-warning btn-sm">Edit</button>
-                            </a>
                             <?php
                             if (isset($_GET['filter']) && $_GET['filter'] == 'delUser') {
-                            ?>
+                                ?>
                                 <a href="undo_user_delete.php?id=<?= $total['id']; ?>">
-                                    <button onclick="return confirm('Are you sure you want to restore <?= $total['name']; ?>?')" class="btn btn-secondary btn-sm">Restore</button>
+                                    <button onclick="return confirm('Are you sure you want to restore <?= $total['name']; ?>?')"
+                                        class="btn btn-secondary btn-sm">Restore</button>
                                 </a>
-                            <?php
+                                <a href="delete_user_perm.php?id=<?= $total['id']; ?>">
+                                    <button
+                                        onclick="return confirm('Are you sure you want to delete <?= $total['name']; ?> permanently?')"
+                                        class="btn btn-danger btn-sm">Delete Permanently</button>
+                                </a>
+                                <?php
                             } else {
-                            ?>
-                                <a href="delete_users.php?id=<?= $total['id']; ?>">
-                                    <button onclick="return confirm('Are you sure you want to delete <?= $total['name'];?>?')" class="btn btn-danger btn-sm">Delete</button>
+                                ?>
+                                <a href="edit_users.php?id=<?= $total['id']; ?>">
+                                    <button class="btn btn-warning btn-sm">Edit</button>
                                 </a>
-                            <?php
+                                <a href="delete_users.php?id=<?= $total['id']; ?>">
+                                    <button onclick="return confirm('Are you sure you want to remove <?= $total['name']; ?>?')"
+                                        class="btn btn-danger btn-sm">Remove</button>
+                                </a>
+                                <?php
                             }
                             ?>
                         </td>
                     </tr>
-                <?php
+                    <?php
                 }
                 ?>
 
