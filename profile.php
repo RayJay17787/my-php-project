@@ -26,9 +26,7 @@ elseif (isset($_SESSION['customer'])) {
 ?>
 
 <body style="overflow: hidden;">
-
-
-    <div class="container-fluid px-4 pt-2">
+    <div class="container-fluid px-5 py-5 mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-5">
                 <h2 class="text-dark fw-bold text-center mb-2" style="font-size: 48px;">Profile</h2>
@@ -94,8 +92,10 @@ elseif (isset($_SESSION['customer'])) {
                         </div>
 
                         <div class="text-center mb-1">
-                            <button name="back" type="submit" class="btn btn-danger w-100 px-4 px-md-5 mt-3 rounded-3 ">Go
-                                back</button>
+                            <a href="user.php">
+                                <button name="back" type="button" class="btn btn-danger w-100 px-4 px-md-5 mt-3 rounded-3 ">Go
+                                    back</button>
+                            </a>
                         </div>
                     </form>
                 </div>

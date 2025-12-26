@@ -59,7 +59,7 @@ $user = $_SESSION['customer'];
                     <a class="nav-link text-white fs-6 fw-semibold" href="contact.php">Contact</a>
                 </li>
                 <li class="nav-item form-text">
-                    <a class="nav-link text-white fs-6 fw-semibold" href="signin.php">
+                    <a class="nav-link text-white fs-6 fw-semibold" href="profile.php">
                         <i class="fa-solid fa-right-to-bracket me-1"></i><?= $user['name']; ?>
                     </a>
                 </li>
