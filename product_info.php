@@ -1,9 +1,16 @@
+<?php
+    $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
+    $id = $_GET['id'];
+    $result = mysqli_query($conn, "SELECT * FROM products WHERE id = $id");
+    $total = mysqli_fetch_assoc($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>product detail</title>
+    <title>Product Detail</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,18 +20,18 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="images/Animal_Crossing_New_Horizons.jpg" alt="product" class="card-img rounded">
+                    <img src="images/<?= $total['image'] ?>" alt="product" class="card-img rounded">
                 </div>
             
                 <div class="col-md-6">
-                    <h2 class="mb-5 mt-5">Animal_Crossing_New_Horizons (PS5)</h2>
+                    <h2 class="mb-5 mt-5"><?= $total['name'] ?></h2>
                 
                     
                    
                     
-                    <p class="mb-3">Experience true next-generation gaming with increased visual fidelity through 4K graphics, and 60FPS for a faster and...</p>
+                    <p class="mb-3"><?= $total['description'] ?></p>
                     
-                    <h3 class="mb-3" id="productPrice" data-price="4200">Rs.4,200.00</h3>
+                    <h3 class="mb-3" id="productPrice" data-price="<?= $total['price'] ?>">Rs.<?= $total['price'] ?></h3>
                     
                     
                     
@@ -38,7 +45,7 @@
                     </div>
                     
                     <div class="mb-3">
-                        <b>Subtotal:</b> <span id="subtotal">Rs.0.00</span>
+                        <b>Subtotal:</b> <span id="subtotal">Rs.<?= $total['price'] ?></span>
                     </div>
                     <div>
                     <button class="btn btn-danger w-100 mb-2 py-2">
@@ -55,7 +62,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Get price dynamically from data attribute
         const pricePerUnit = parseFloat(document.getElementById('productPrice').getAttribute('data-price'));
         let quantity = 0;
 

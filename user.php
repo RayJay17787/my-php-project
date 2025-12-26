@@ -52,9 +52,11 @@ include 'userheader.php';
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-title" style="min-height: 48px;"><?= $total['name'] ?></div>
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
-                                        <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                            <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                                        </button>
+                                        <a href="product_info.php?id=<?= $total['id'] ?>">
+                                            <button class="btn btn-danger w-100 mt-auto" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -78,9 +80,11 @@ include 'userheader.php';
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-title" style="min-height: 48px;"><?= $total['name'] ?></div>
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
-                                        <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                            <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                                        </button>
+                                        <a href="product_info.php?id=<?= $total['id'] ?>">
+                                            <button class="btn btn-danger w-100 mt-auto" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -124,9 +128,11 @@ include 'userheader.php';
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-title" style="min-height: 48px;"><?= $total['name'] ?></div>
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
-                                        <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                            <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                                        </button>
+                                        <a href="product_info.php?id=<?= $total['id'] ?>">
+                                            <button class="btn btn-danger w-100 mt-auto" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -150,9 +156,11 @@ include 'userheader.php';
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-title" style="min-height: 48px;"><?= $total['name'] ?></div>
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
-                                        <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                            <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                                        </button>
+                                        <a href="product_info.php?id=<?= $total['id'] ?>">
+                                            <button class="btn btn-danger w-100 mt-auto" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -196,9 +204,11 @@ include 'userheader.php';
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-title" style="min-height: 48px;"><?= $total['name'] ?></div>
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
-                                        <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                            <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                                        </button>
+                                        <a href="product_info.php?id=<?= $total['id'] ?>">
+                                            <button class="btn btn-danger w-100 mt-auto" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -222,9 +232,11 @@ include 'userheader.php';
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-title" style="min-height: 48px;"><?= $total['name'] ?></div>
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
-                                        <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                            <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                                        </button>
+                                        <a href="product_info.php?id=<?= $total['id'] ?>">
+                                            <button class="btn btn-danger w-100 mt-auto" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -268,9 +280,11 @@ include 'userheader.php';
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-title" style="min-height: 48px;"><?= $total['name'] ?></div>
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
-                                        <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                            <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                                        </button>
+                                        <a href="product_info.php?id=<?= $total['id'] ?>">
+                                            <button class="btn btn-danger w-100 mt-auto" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -294,9 +308,11 @@ include 'userheader.php';
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-title" style="min-height: 48px;"><?= $total['name'] ?></div>
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
-                                        <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                            <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                                        </button>
+                                        <a href="product_info.php?id=<?= $total['id'] ?>">
+                                            <button class="btn btn-danger w-100 mt-auto" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -340,9 +356,11 @@ include 'userheader.php';
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-title" style="min-height: 48px;"><?= $total['name'] ?></div>
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
-                                        <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                            <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                                        </button>
+                                        <a href="product_info.php?id=<?= $total['id'] ?>">
+                                            <button class="btn btn-danger w-100 mt-auto" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -366,9 +384,11 @@ include 'userheader.php';
                                     <div class="card-body d-flex flex-column">
                                         <div class="card-title" style="min-height: 48px;"><?= $total['name'] ?></div>
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
-                                        <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                            <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                                        </button>
+                                        <a href="product_info.php?id=<?= $total['id'] ?>">
+                                            <button class="btn btn-danger w-100 mt-auto" type="submit">
+                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
