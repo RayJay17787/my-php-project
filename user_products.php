@@ -1,4 +1,5 @@
 <?php
+session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
 $query = "SELECT * FROM products";
