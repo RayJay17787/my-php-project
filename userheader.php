@@ -36,8 +36,8 @@ $user = $_SESSION['customer'];
                 data-bs-target="#sidebar">
                 <i class="fa-solid fa-bars fw-bold fs-4"></i>
             </button>
-            <a class="navbar-brand ms-2 text-white fw-bold fst-italic form-text ms-3 fs-4"
-                href="storefront.php">GAMEVAULT</a>
+            <a class="navbar-brand ms-2 text-white fw-bold form-text ms-3 fs-4"
+                href="user.php"><i>GAME</i>VAULT</a>
 
             <form class="d-flex mx-auto" style="width: 500px;">
                 <div class="input-group">
@@ -61,12 +61,12 @@ $user = $_SESSION['customer'];
                 </li>
                 <li class="nav-item form-text">
                     <a class="nav-link text-white fs-6 fw-semibold" href="profile.php">
-                        <i class="fa-solid fa-right-to-bracket me-1"></i><?= $user['name']; ?>
+                        <i class="bi bi-person-circle me-2"></i><?= $user['name']; ?>
                     </a>
                 </li>
                 <li class="nav-item form-text">
                     <a class="nav-link text-white fs-6 fw-semibold" href="signout.php">
-                        <i class="fa-solid fa-user-plus me-1"></i> Sign Out
+                        <i class="bi bi-box-arrow-left me-1"></i> Sign Out
                     </a>
                 </li>
                 <li class="nav-item form-text">

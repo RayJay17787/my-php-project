@@ -7,7 +7,8 @@ include 'guestheader.php';
     <div class="carousel-inner w-100">
 
         <div class="carousel-item active">
-            <img src="images/60bd647d-0f8f-49f6-b53c-90370462d209.jpg" class="w-100" alt="sale" style="height: 620px; ">
+    <img src="images/60bd647d-0f8f-49f6-b53c-90370462d209.jpg" class="w-100" alt="sale"
+style="height: 620px; ">
         </div>
 
         <div class="carousel-item">
