@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="bootstrap/node_modules/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 
 <body style="font-family: 'Montreal', sans-serif;" class="d-flex flex-column min-vh-100">

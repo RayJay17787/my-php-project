@@ -54,7 +54,7 @@ include 'userheader.php';
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
                                         <a href="product_info.php?id=<?= $total['id'] ?>">
                                             <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                                <i class="bi bi-eye-fill"></i> View Details
                                             </button>
                                         </a>
                                     </div>
@@ -82,7 +82,7 @@ include 'userheader.php';
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
                                         <a href="product_info.php?id=<?= $total['id'] ?>">
                                             <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                                <i class="bi bi-eye-fill"></i> View Details
                                             </button>
                                         </a>
                                     </div>
@@ -130,7 +130,7 @@ include 'userheader.php';
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
                                         <a href="product_info.php?id=<?= $total['id'] ?>">
                                             <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                                <i class="bi bi-eye-fill"></i> View Details
                                             </button>
                                         </a>
                                     </div>
@@ -158,7 +158,7 @@ include 'userheader.php';
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
                                         <a href="product_info.php?id=<?= $total['id'] ?>">
                                             <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                                <i class="bi bi-eye-fill"></i> View Details
                                             </button>
                                         </a>
                                     </div>
@@ -206,7 +206,7 @@ include 'userheader.php';
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
                                         <a href="product_info.php?id=<?= $total['id'] ?>">
                                             <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                                <i class="bi bi-eye-fill"></i> View Details
                                             </button>
                                         </a>
                                     </div>
@@ -234,7 +234,7 @@ include 'userheader.php';
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
                                         <a href="product_info.php?id=<?= $total['id'] ?>">
                                             <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                                <i class="bi bi-eye-fill"></i> View Details
                                             </button>
                                         </a>
                                     </div>
@@ -259,7 +259,7 @@ include 'userheader.php';
 <?php $result = mysqli_query($conn, "SELECT * FROM products WHERE platform = 'Xbox'"); ?>
 <div class="container my-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold mb-0 border-bottom border-danger border-3 pb-2">XBOX SERIES X</h2>
+        <h2 class="fw-bold mb-0 border-bottom border-danger border-3 pb-2">XBOX SERIES X/S</h2>
         <a href="#" class="btn border-black">View All</a>
     </div>
     <div id="xboxseriesx" class="carousel slide" data-bs-ride="false">
@@ -282,7 +282,7 @@ include 'userheader.php';
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
                                         <a href="product_info.php?id=<?= $total['id'] ?>">
                                             <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                                <i class="bi bi-eye-fill"></i> View Details
                                             </button>
                                         </a>
                                     </div>
@@ -310,7 +310,7 @@ include 'userheader.php';
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
                                         <a href="product_info.php?id=<?= $total['id'] ?>">
                                             <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                                <i class="bi bi-eye-fill"></i> View Details
                                             </button>
                                         </a>
                                     </div>
@@ -358,7 +358,7 @@ include 'userheader.php';
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
                                         <a href="product_info.php?id=<?= $total['id'] ?>">
                                             <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                                <i class="bi bi-eye-fill"></i> View Details
                                             </button>
                                         </a>
                                     </div>
@@ -386,7 +386,7 @@ include 'userheader.php';
                                         <p class="text-danger fw-bold mb-3">$<?= $total['price'] ?></p>
                                         <a href="product_info.php?id=<?= $total['id'] ?>">
                                             <button class="btn btn-danger w-100 mt-auto" type="submit">
-                                                <i class="fa-solid fa-cart-arrow-down"></i> View Details
+                                                <i class="bi bi-eye-fill"></i> View Details
                                             </button>
                                         </a>
                                     </div>
@@ -435,8 +435,8 @@ include 'userheader.php';
             <a href="#" class="text-decoration-none text-dark">
                 <div class="card border shadow-sm h-100">
                     <div class="card-body">
-                        <i class="fa-solid fa-gamepad fs-1 mb-3 mt-3" style="color: #ce0909;"></i>
-                        <h6 class="card-title">Nintendo Switch</h6>
+                        <i class="bi bi-nintendo-switch fs-1 mb-3 mt-3" style="color: #ce0909;"></i>
+                        <h6 class="card-title mt-2">Nintendo Switch</h6>
                     </div>
                 </div>
             </a>

@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="css/all.min.css">
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="bootstrap/node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <style>
 
     </style>

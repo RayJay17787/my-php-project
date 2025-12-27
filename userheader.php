@@ -24,6 +24,7 @@ $user = $_SESSION['customer'];
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="bootstrap/node_modules/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 
 <body style="font-family: 'Montreal', sans-serif;" class="d-flex flex-column min-vh-100">
@@ -98,7 +99,7 @@ $user = $_SESSION['customer'];
                     <i class="fa-brands fa-xbox me-2"></i> Xbox
                 </a>
                 <a href="nintendo.php" class="list-group-item list-group-item-action ps-4">
-                    <i class="fa-brands fa-steam-symbol me-2" style="color: red;"></i> Nintendo Switch
+                    <i class="bi bi-nintendo-switch me-2" style="color: red;"></i> Nintendo Switch
                 </a>
             </div>
         </div>
