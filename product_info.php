@@ -54,9 +54,6 @@ include "userheader.php";
 
                     <h3 class="mb-3" id="productPrice" data-price="<?= $total['price'] ?>">Rs.<?= $total['price'] ?>
                     </h3>
-
-
-
                     <div class="d-flex align-items-center mb-3">
                         <label class="me-3 fw-bold">Quantity:</label>
                         <div class="btn-group" role="group">
