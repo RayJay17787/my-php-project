@@ -2,6 +2,7 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 $id = $_GET['id'];
+$qty = isset($_GET['quantity']) ? (int) $_GET['quantity'] : (isset($_POST['quantity']) ? (int) $_POST['quantity'] : 1);
 $result = mysqli_query($conn, "SELECT * FROM products WHERE id = $id");
 
 $total = mysqli_fetch_assoc($result);
@@ -19,10 +20,8 @@ include "userheader.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
 
-    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -60,12 +59,12 @@ include "userheader.php";
 
                                     <div class="row">
                                         <div class="col-6">Price:</div>
-                                        <div class="col-6 text-end" id="displayPrice"> <?= $total['price'] ?></div>
+                                        <div class="col-6 text-end" id="displayPrice"> Rs.<?= $total['price'] ?></div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-6">Quantity:</div>
-                                        <div class="col-6 text-end" id="displayQuantity"> <?= $total['stock'] ?></div>
+                                        <div class="col-6 text-end" id="displayQuantity"> <?= $qty ?></div>
                                     </div>
 
                                     <hr>
@@ -73,18 +72,16 @@ include "userheader.php";
                                     <div class="row">
                                         <div class="col-6 fw-bold">Total:</div>
                                         <div class="col-6 text-end text-primary fw-bold" id="displayTotal">
-                                            <?= $total['price'] ?></div>
+                                            Rs.<?= $total['price'] * $qty ?></div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- HIDDEN INPUTS -->
                             <input type="hidden" name="product_name" id="productName">
                             <input type="hidden" name="product_price" id="productPrice">
                             <input type="hidden" name="quantity" id="quantity">
                             <input type="hidden" name="total_amount" id="totalAmount">
 
-                            <!-- CUSTOMER INFO -->
                             <div class="mb-3">
                                 <label class="form-label"><b>Full Name</b></label>
                                 <input type="text" value="<?= $user['name'] ?>" class="form-control"
@@ -108,29 +105,6 @@ include "userheader.php";
                                 <textarea class="form-control" name="customer_address" required></textarea>
                             </div>
 
-                            <!-- PAYMENT -->
-                            <div class="mb-3">
-                                <label class="form-label fw-bold">Payment Method</label>
-
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="payment_method" value="cod"
-                                        checked>
-                                    <label class="form-check-label">
-                                        <i class="fas fa-money-bill-wave text-success me-2"></i>
-                                        Cash on Delivery
-                                    </label>
-                                </div>
-
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="payment_method" value="paypal">
-                                    <label class="form-check-label">
-                                        <i class="fab fa-paypal text-primary me-2"></i>
-                                        PayPal
-                                    </label>
-                                </div>
-                            </div>
-
-
                             <button class="btn btn-success w-100 mb-2">Place Order</button>
                             <a href="product_info.php?id=<?php echo $id ?>">
                                 <button type="button" class="btn btn-danger w-100">Go Back</button>
@@ -145,21 +119,12 @@ include "userheader.php";
         </div>
     </div>
 
-    <!-- BASIC VANILLA JS -->
     <script>
-        // SIMPLE VARIABLES
         var productName = "<?= $total['name'] ?>";
         var productPrice = "<?= $total['price'] ?>";
-        var quantity = 1;
+        var quantity = "<?= $qty ?>";
         var totalAmount = productPrice * quantity;
 
-        // SHOW DATA
-        document.getElementById("displayProduct").innerHTML = productName;
-        document.getElementById("displayPrice").innerHTML = "Rs." + productPrice;
-        document.getElementById("displayQuantity").innerHTML = quantity;
-        document.getElementById("displayTotal").innerHTML = "Rs." + totalAmount;
-
-        // SEND DATA TO PHP
         document.getElementById("productName").value = productName;
         document.getElementById("productPrice").value = productPrice;
         document.getElementById("quantity").value = quantity;

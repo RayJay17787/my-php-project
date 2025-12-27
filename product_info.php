@@ -54,25 +54,26 @@ include "userheader.php";
 
                     <h3 class="mb-3" id="productPrice" data-price="<?= $total['price'] ?>">Rs.<?= $total['price'] ?>
                     </h3>
+                    <form action="checkout_page.php?id=<?= $total['id']; ?>" method="post">
                     <div class="d-flex align-items-center mb-3">
                         <label class="me-3 fw-bold">Quantity:</label>
                         <div class="btn-group" role="group">
                             <button type="button" class="btn btn-outline-secondary" id="decreaseBtn">-</button>
-                            <input type="text" class="form-control text-center" id="quantity" value="1"
+                            <input name="quantity" type="text" class="form-control text-center" id="quantity" value=""
                                 style="max-width: 60px;" readonly>
                             <button type="button" class="btn btn-outline-secondary" id="increaseBtn">+</button>
                         </div>
                     </div>
-
                     <div class="mb-3">
-                        <b>Subtotal:</b> <span id="subtotal">Rs.<?= $total['price'] ?></span>
+                        <b>Subtotal:</b> <span id="subtotal">Rs.<?= $total['price']?></span>
                     </div>
+                    </form>
                     <div>
                         <button class="btn btn-warning w-100 mb-3 py-2">
                             <i class="fa-solid fa-cart-arrow-down me-2"></i>Add To Cart
                         </button>
                     </div>
-                    <a href="checkout_page.php?id=<?php echo $total['id']; ?>"><button type="button "
+                    <a id="buyNowBtn" href="checkout_page.php?id=<?php echo $total['id']; ?>&quantity=1"><button type="button"
                             class="btn btn-success w-100 py-2 mb-3">Buy It Now</button></a>
                     <a type="button" href="user.php" class="btn btn-danger w-100 py-2 mb-3">Go Back</a>
 
@@ -81,35 +82,41 @@ include "userheader.php";
             </div>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const pricePerUnit = parseFloat(document.getElementById('productPrice').getAttribute('data-price'));
-        let quantity = 1;
-
         const quantityInput = document.getElementById('quantity');
+        const buyNowBtn = document.getElementById('buyNowBtn');
+        const productId = "<?= $total['id']; ?>";
+        
+        let quantity = 1;
+        quantityInput.value = quantity;
+
         const subtotalSpan = document.getElementById('subtotal');
         const increaseBtn = document.getElementById('increaseBtn');
         const decreaseBtn = document.getElementById('decreaseBtn');
 
-        function updateSubtotal() {
+        function updateUI() {
             const subtotal = pricePerUnit * quantity;
             subtotalSpan.textContent = `Rs.${subtotal.toLocaleString('en-PK', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+            
+            quantityInput.value = quantity;
+
+            buyNowBtn.href = `checkout_page.php?id=${productId}&quantity=${quantity}`;
         }
 
         increaseBtn.addEventListener('click', function () {
             quantity++;
-            quantityInput.value = quantity;
-            updateSubtotal();
+            updateUI();
         });
 
         decreaseBtn.addEventListener('click', function () {
             if (quantity > 1) {
                 quantity--;
-                quantityInput.value = quantity;
-                updateSubtotal();
+                updateUI();
             }
         });
+        
+        updateUI();
     </script>
 </body>
 
