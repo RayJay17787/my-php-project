@@ -34,7 +34,7 @@ include "userheader.php";
                     </div>
 
                     <div class="card-body">
-                        <form action="process_order.php" method="POST">
+                        <form action="stripe_checkout.php" method="POST">
 
 
                             <div class="card mb-4">
@@ -96,7 +96,8 @@ include "userheader.php";
                                 <textarea class="form-control" name="customer_address" required></textarea>
                             </div>
 
-                                <button onclick="return confirm('Are you sure you want to place this order?')" type="submit" class="btn btn-success w-100 mb-2">Place Order</button>
+                            <button onclick="return confirm('Are you sure you want to place this order?')" type="submit"
+                                class="btn btn-success w-100 mb-2">Place Order</button>
                             <a href="product_info.php?id=<?= $id ?>">
                                 <button type="button" class="btn btn-danger w-100">Go Back</button>
                             </a>
