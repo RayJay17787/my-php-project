@@ -2,7 +2,8 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 $id = $_GET['id'];
-$result = mysqli_query($conn, "SELECT * FROM products WHERE id = $id");
+$query = "SELECT * FROM products WHERE id = $id";
+$result = mysqli_query($conn, $query);
 $total = mysqli_fetch_assoc($result);
 
 include "userheader.php";
@@ -73,7 +74,7 @@ include "userheader.php";
                             <i class="fa-solid fa-cart-arrow-down me-2"></i>Add To Cart
                         </button>
                     </div>
-                    <a id="buyNowBtn" href="checkout_page.php?id=<?php echo $total['id']; ?>&quantity=1"><button type="button"
+                    <a id="buyNowBtn" href="checkout_page.php?id=<?= $total['id']; ?>&quantity=1"><button type="button"
                             class="btn btn-success w-100 py-2 mb-3">Buy It Now</button></a>
                     <a type="button" href="user.php" class="btn btn-danger w-100 py-2 mb-3">Go Back</a>
 

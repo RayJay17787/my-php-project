@@ -1,19 +1,18 @@
 <?php
     session_start();
-    $conn = mysqli_connect('localhost','root','','gaming_store');
 
-    $id = $_GET['id'];
+    $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
-    $customer = $_SESSION['customer'];
+    $customer_id = $_SESSION['customer']['id'];
+    $id = $_POST['product_id'];
+    $total_amound = $_POST['total_amount'];
+    $shipping_address = $_POST['customer_address'];
+    $product = $_POST['product'];
+    $order_date = date('Y-m-d');
 
-    $user_query = "SELECT * FROM customers WHERE id = $id";
-    
-    $product_query = "SELECT * FROM products WHERE id = $id";
+    $query = "INSERT INTO orders (customer_id, total_amount, shipping_address, order_date) VALUES ($customer_id, $total_amound, '$shipping_address', '$order_date')";
 
-    $user_data = mysqli_query($conn, $user_query);
-    $product_data = mysqli_query($conn, $product_query);
+    $result = mysqli_query($conn, $query);
 
-    $total_product = mysqli_fetch_assoc($product_data);
-    $total_user = mysqli_fetch_assoc($user_data);
-
+    header("Location: product_info.php?id=".$id);
 ?>

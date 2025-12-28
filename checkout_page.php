@@ -2,7 +2,7 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 $id = $_GET['id'];
-$qty = isset($_GET['quantity']) ? (int) $_GET['quantity'] : (isset($_POST['quantity']) ? (int) $_POST['quantity'] : 1);
+$qty = $_GET['quantity'];
 $result = mysqli_query($conn, "SELECT * FROM products WHERE id = $id");
 
 $total = mysqli_fetch_assoc($result);
@@ -12,17 +12,8 @@ $user = $_SESSION['customer'];
 include "userheader.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body class="bg-light">
@@ -34,7 +25,6 @@ include "userheader.php";
                 <img src="images/<?= $total['image'] ?>" class="card-img rounded shadow" alt="Product"
                     style="height: 870px;">
             </div>
-
 
             <div class="col-md-6 mt-5">
                 <div class="card shadow mb-5">
@@ -81,6 +71,7 @@ include "userheader.php";
                             <input type="hidden" name="product_price" id="productPrice">
                             <input type="hidden" name="quantity" id="quantity">
                             <input type="hidden" name="total_amount" id="totalAmount">
+                            <input type="hidden" name="product_id" value="<?= $id ?>">
 
                             <div class="mb-3">
                                 <label class="form-label"><b>Full Name</b></label>
@@ -105,8 +96,8 @@ include "userheader.php";
                                 <textarea class="form-control" name="customer_address" required></textarea>
                             </div>
 
-                            <button class="btn btn-success w-100 mb-2">Place Order</button>
-                            <a href="product_info.php?id=<?php echo $id ?>">
+                                <button onclick="return confirm('Are you sure you want to place this order?')" type="submit" class="btn btn-success w-100 mb-2">Place Order</button>
+                            <a href="product_info.php?id=<?= $id ?>">
                                 <button type="button" class="btn btn-danger w-100">Go Back</button>
                             </a>
 

@@ -1,8 +1,8 @@
 <?php
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
-
-$result = mysqli_query($conn, "SELECT * FROM products");
+$query = "SELECT * FROM products";
+$result = mysqli_query($conn, $query);
 
 include 'userheader.php';
 ?>
