@@ -135,8 +135,7 @@ $user = $_SESSION['customer'];
                                     <p class="mb-0">Rs. <?php echo $item['price'];?> x <?php echo $item['quantity'];?></p>
                                     <div class="">
                                         <a href="product_remove_cart.php?id=<?= $item['id']; ?>">
-                                            <button class="btn btn-danger btn-sm mt-2"><i class="fa-solid fa-trash"></i>   Remove Item</button>
-                                            <!-- <i style="color: red;" class="fa-solid fa-trash"></i> -->
+                                            <button class="btn btn-danger btn-sm mt-2"><i class="fa-solid fa-trash"></i> Remove Item</button>
                                         </a>
                         </div>
                                 </div>
@@ -146,7 +145,7 @@ $user = $_SESSION['customer'];
                     ?>
                     <div class="p-3">
                         <h5>Total: Rs. <?php echo $grand_total;?></h5>
-                        <a href="cart.php" class="btn btn-success w-100">View Cart</a>
+                        <a href="cart_checkout.php" class="btn btn-success w-100">Buy Now</a>
                     </div>
                     <?php
                 } else{

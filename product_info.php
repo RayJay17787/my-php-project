@@ -27,14 +27,15 @@ include "userheader.php";
             <div class="row">
                 <div class="col-md-6">
                     <img style="height: 700px;" src="images/<?= $total['image'] ?>" alt="product"
-                    class="card-img rounded mt-5">
+                        class="card-img rounded mt-5">
                 </div>
-                
+
                 <div class="col-md-6">
                     <div class="card shadow mt-5 mb-1">
                         <div class="card-header bg-danger text-white">
-                        <h2 class="text-center pt-3 mt-5 fw-bold mb-5 pb-3"><i class="bi bi-info-square-fill pe-2"></i>  Product Details</h2>
-                    </div>
+                            <h2 class="text-center pt-3 mt-5 fw-bold mb-5 pb-3"><i
+                                    class="bi bi-info-square-fill pe-2"></i> Product Details</h2>
+                        </div>
                     </div>
                     <h3 class="mb-3 mt-5"><b><?= $total['name'] ?></b></h3>
 
@@ -56,22 +57,23 @@ include "userheader.php";
                     <h3 class="mb-3" id="productPrice" data-price="<?= $total['price'] ?>">Rs.<?= $total['price'] ?>
                     </h3>
                     <form action="checkout_page.php?id=<?= $total['id']; ?>" method="post">
-                    <div class="d-flex align-items-center mb-3">
-                        <label class="me-3 fw-bold">Quantity:</label>
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-outline-secondary" id="decreaseBtn">-</button>
-                            <input name="quantity" type="text" class="form-control text-center" id="quantity" value=""
-                                style="max-width: 60px;" readonly>
-                            <button type="button" class="btn btn-outline-secondary" id="increaseBtn">+</button>
+                        <div class="d-flex align-items-center mb-3">
+                            <label class="me-3 fw-bold">Quantity:</label>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-outline-secondary" id="decreaseBtn">-</button>
+                                <input name="quantity" type="text" class="form-control text-center" id="quantity"
+                                    value="" style="max-width: 60px;" readonly>
+                                <button type="button" class="btn btn-outline-secondary" id="increaseBtn">+</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <b>Subtotal:</b> <span id="subtotal">Rs.<?= $total['price']?></span>
-                    </div>
+                        <div class="mb-3">
+                            <b>Subtotal:</b> <span id="subtotal">Rs.<?= $total['price'] ?></span>
+                        </div>
                     </form>
                     <div>
-                        <a href="add_to_cart.php?id=<?= $total['id']; ?>&quantity=1">
-                            <button class="btn btn-warning w-100 mb-3 py-2"><i class="fa-solid fa-cart-arrow-down me-2"></i>Add To Cart</button>
+                        <a id="addToCartBtn" href="add_to_cart.php?id=<?= $total['id']; ?>&quantity=1">
+                            <button class="btn btn-warning w-100 mb-3 py-2"><i
+                                    class="fa-solid fa-cart-arrow-down me-2"></i>Add To Cart</button>
                         </a>
                     </div>
                     <a id="buyNowBtn" href="checkout_page.php?id=<?= $total['id']; ?>&quantity=1"><button type="button"
@@ -87,8 +89,9 @@ include "userheader.php";
         const pricePerUnit = parseFloat(document.getElementById('productPrice').getAttribute('data-price'));
         const quantityInput = document.getElementById('quantity');
         const buyNowBtn = document.getElementById('buyNowBtn');
+        const addToCartBtn = document.getElementById('addToCartBtn');
         const productId = "<?= $total['id']; ?>";
-        
+
         let quantity = 1;
         quantityInput.value = quantity;
 
@@ -99,10 +102,11 @@ include "userheader.php";
         function updateUI() {
             const subtotal = pricePerUnit * quantity;
             subtotalSpan.textContent = `Rs.${subtotal.toLocaleString('en-PK', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-            
+
             quantityInput.value = quantity;
 
             buyNowBtn.href = `checkout_page.php?id=${productId}&quantity=${quantity}`;
+            addToCartBtn.href = `add_to_cart.php?id=${productId}&quantity=${quantity}`;
         }
 
         increaseBtn.addEventListener('click', function () {
@@ -116,7 +120,7 @@ include "userheader.php";
                 updateUI();
             }
         });
-        
+
         updateUI();
     </script>
 </body>
