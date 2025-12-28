@@ -31,10 +31,9 @@ include "userheader.php";
                 </div>
 
                 <div class="col-md-6">
-                    <div class="card shadow mt-5 mb-1">
-                        <div class="card-header bg-danger text-white">
-                            <h2 class="text-center pt-3 mt-5 fw-bold mb-5 pb-3"><i
-                                    class="bi bi-info-square-fill pe-2"></i> Product Details</h2>
+                    <div class="card shadow mt-5 mb-1 ">
+                        <div class="card bg-danger text-white h-50 ">
+                            <h2 class="text-center py-2 fw-bold"><div class="py-2 mt-2"><i class="bi bi-info-square-fill pe-2"></i>Product Details</div></h2>
                         </div>
                     </div>
                     <h3 class="mb-3 mt-5"><b><?= $total['name'] ?></b></h3>

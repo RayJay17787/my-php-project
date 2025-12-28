@@ -45,7 +45,7 @@ include 'userheader.php';
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
-                                    <a class="text-decoration-none text-dark" href="">
+                                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'] ?>">
                                         <img src="images/<?= $total['image'] ?>" class="card-img-top" alt="Product"
                                             style="height: 300px;">
                                     </a>
@@ -73,7 +73,7 @@ include 'userheader.php';
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
-                                    <a class="text-decoration-none text-dark" href="">
+                                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'] ?>">
                                         <img src="images/<?= $total['image'] ?>" class="card-img-top" alt="Product"
                                             style="height: 300px;">
                                     </a>
@@ -121,7 +121,7 @@ include 'userheader.php';
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
-                                    <a class="text-decoration-none text-dark" href="">
+                                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'] ?>">
                                         <img src="images/<?= $total['image'] ?>" class="card-img-top" alt="Product"
                                             style="height: 300px;">
                                     </a>
@@ -149,7 +149,7 @@ include 'userheader.php';
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
-                                    <a class="text-decoration-none text-dark" href="">
+                                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'] ?>">
                                         <img src="images/<?= $total['image'] ?>" class="card-img-top" alt="Product"
                                             style="height: 300px;">
                                     </a>
@@ -197,7 +197,7 @@ include 'userheader.php';
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
-                                    <a class="text-decoration-none text-dark" href="">
+                                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'] ?>">
                                         <img src="images/<?= $total['image'] ?>" class="card-img-top" alt="Product"
                                             style="height: 300px;">
                                     </a>
@@ -225,7 +225,7 @@ include 'userheader.php';
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
-                                    <a class="text-decoration-none text-dark" href="">
+                                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'] ?>">
                                         <img src="images/<?= $total['image'] ?>" class="card-img-top" alt="Product"
                                             style="height: 300px;">
                                     </a>
@@ -273,7 +273,7 @@ include 'userheader.php';
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
-                                    <a class="text-decoration-none text-dark" href="">
+                                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'] ?>">
                                         <img src="images/<?= $total['image'] ?>" class="card-img-top" alt="Product"
                                             style="height: 300px;">
                                     </a>
@@ -301,7 +301,7 @@ include 'userheader.php';
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
-                                    <a class="text-decoration-none text-dark" href="">
+                                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'] ?>">
                                         <img src="images/<?= $total['image'] ?>" class="card-img-top" alt="Product"
                                             style="height: 300px;">
                                     </a>
@@ -349,7 +349,7 @@ include 'userheader.php';
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
-                                    <a class="text-decoration-none text-dark" href="">
+                                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'] ?>">
                                         <img src="images/<?= $total['image'] ?>" class="card-img-top" alt="Product"
                                             style="height: 300px;">
                                     </a>
@@ -377,7 +377,7 @@ include 'userheader.php';
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
-                                    <a class="text-decoration-none text-dark" href="">
+                                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'] ?>">
                                         <img src="images/<?= $total['image'] ?>" class="card-img-top" alt="Product"
                                             style="height: 300px;">
                                     </a>
