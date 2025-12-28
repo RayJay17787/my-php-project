@@ -23,7 +23,7 @@ include "userheader.php";
 
             <div class="col-md-6">
                 <img src="images/<?= $total['image'] ?>" class="card-img rounded shadow" alt="Product"
-                    style="height: 870px;">
+                    style="height: 767px;">
             </div>
 
             <div class="col-md-6 mt-5">

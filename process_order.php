@@ -14,5 +14,5 @@
 
     $result = mysqli_query($conn, $query);
 
-    header("Location: product_info.php?id=".$id);
+    header("Location: product_info.php?id=$id");
 ?>

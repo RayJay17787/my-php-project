@@ -70,9 +70,9 @@ include "userheader.php";
                     </div>
                     </form>
                     <div>
-                        <button class="btn btn-warning w-100 mb-3 py-2">
-                            <i class="fa-solid fa-cart-arrow-down me-2"></i>Add To Cart
-                        </button>
+                        <a href="add_to_cart.php?id=<?= $total['id']; ?>&quantity=1">
+                            <button class="btn btn-warning w-100 mb-3 py-2"><i class="fa-solid fa-cart-arrow-down me-2"></i>Add To Cart</button>
+                        </a>
                     </div>
                     <a id="buyNowBtn" href="checkout_page.php?id=<?= $total['id']; ?>&quantity=1"><button type="button"
                             class="btn btn-success w-100 py-2 mb-3">Buy It Now</button></a>

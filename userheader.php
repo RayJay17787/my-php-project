@@ -72,7 +72,14 @@ $user = $_SESSION['customer'];
                 <li class="nav-item form-text">
                     <a class="nav-link text-white fs-6 fw-semibold" href="#" data-bs-toggle="offcanvas"
                         data-bs-target="#shoppingcart">
-                        <i class="fa-solid fa-cart-shopping"></i> (0)
+                        <i class="fa-solid fa-cart-shopping"></i> (<?php
+                            if(isset($_SESSION['cart'])){
+                                echo count($_SESSION['cart']);
+                            }
+                            else{
+                                echo 0;
+                            }
+                        ?>)
                     </a>
                 </li>
             </ul>
