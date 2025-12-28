@@ -20,7 +20,7 @@ include 'userheader.php';
         ?>
             <div class="col-lg-3 col-md-4 col-sm-6">
                 <div class="card border shadow-sm h-100 product-card">
-                    <a class="text-decoration-none text-dark" href="">
+                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'];?>">
                         <img src="images/<?= $total['image']; ?>"
                             class="card-img-top" alt="Product" style="height: 300px;">
                         <div class="card-body d-flex flex-column">
@@ -33,9 +33,11 @@ include 'userheader.php';
                             </div>
                     </a>
                     <p class="text-danger fw-bold mb-3">Rs. <?= $total['price']; ?></p>
-                    <button class="btn btn-danger w-100 mt-auto">
-                        <i class="fa-solid fa-cart-arrow-down"></i> Add to Cart
-                    </button>
+                    <a href="product_info.php?id=<?= $total['id'];?>">
+                        <button class="btn btn-danger w-100 mt-auto">
+                            <i class="bi bi-joystick me-2"></i> View Product Info
+                        </button>
+                    </a>
                 </div>
             </div>
     </div>
