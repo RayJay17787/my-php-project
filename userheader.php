@@ -120,9 +120,44 @@ $user = $_SESSION['customer'];
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
         </div>
         <div class="offcanvas-body p-0">
-            <div class="text-center py-5">
-                <i class="fa-solid fa-cart-shopping fs-1 text-muted mb-3"></i>
-                <p class="text-muted">Your cart is empty</p>
+            <?php
+                if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0){
+                    ?>
+                    <?php
+                        $grand_total = 0;
+                        foreach($_SESSION['cart'] as $item){
+                            $grand_total = $grand_total + ($item['price'] * $item['quantity']);
+                            ?>
+                            <div class="d-flex p-3 border-bottom">
+                                <img src="images/<?= $item['image']; ?>" alt="" style="width: 60px; height: 60px;">
+                                <div class="ms-3">
+                                    <h6><?= $item['name'];?></h6>
+                                    <p class="mb-0">Rs. <?php echo $item['price'];?> x <?php echo $item['quantity'];?></p>
+                                    <div class="">
+                                        <a href="product_remove_cart.php?id=<?= $item['id']; ?>">
+                                            <button class="btn btn-danger btn-sm mt-2"><i class="fa-solid fa-trash"></i>   Remove Item</button>
+                                            <!-- <i style="color: red;" class="fa-solid fa-trash"></i> -->
+                                        </a>
+                        </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                    ?>
+                    <div class="p-3">
+                        <h5>Total: Rs. <?php echo $grand_total;?></h5>
+                        <a href="cart.php" class="btn btn-success w-100">View Cart</a>
+                    </div>
+                    <?php
+                } else{
+                    ?>
+                    <div class="text-center p-3">
+                        <i class="fa-solid fa-cart-shopping fs-1 text-muted mb-3"></i>
+                        <h5 class="text-muted">Your cart is empty</h5>
+                    </div>
+                    <?php
+                }
+            ?>
             </div>
         </div>
     </div>
