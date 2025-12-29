@@ -149,11 +149,18 @@ include 'adminheader.php';
                 event.preventDefault();
             }
 
-            var ImageName = document.getElementById('image').value
-            if (ImageName == '') {
-                document.getElementById('image_error').innerHTML = "Please Insert a Value"
-                event.preventDefault();
-            }
+        var ImageName = document.getElementById('image').value;
+var regex = /\.(jpg|jpeg|png)$/i;
+
+if (ImageName == '') {
+    document.getElementById('image_error').innerHTML = "Please Insert a Value";
+    event.preventDefault();
+} else if (!regex.test(ImageName)) {
+    document.getElementById('image_error').innerHTML = "Only PNG and JPEG files are allowed";
+    event.preventDefault();
+} else {
+    document.getElementById('image_error').innerHTML = "";
+}
 
             var stock = document.getElementById('stock').value
             if (stock == '') {
