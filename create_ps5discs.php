@@ -37,7 +37,7 @@ include 'adminheader.php';
                     GAMEVAULT</h1>
 
                 <div class="card p-3 p-md-4">
-                    <h2 class="fw-bold fs-4 text-center">Add A Playstation 5 Disc</h2>
+                    <h2 class="fw-bold fs-4 text-center">Add A Disc</h2>
                     <hr class="mb-3 mt-3">
 
                     <form action="" method="POST">

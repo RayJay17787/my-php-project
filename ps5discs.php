@@ -108,6 +108,7 @@ include 'adminheader.php';
                         <td><?= $total['stock'] ?></td>
                         <td><?= $total['status'] ?></td>
                         <td>
+                            <div class="d-flex gap-1 justify-content-center">
                             <a href="edit_ps5discs.php?id=<?= $total['id']; ?>">
                                 <button class="btn btn-warning btn-sm">Edit</button>
                             </a>
@@ -126,6 +127,7 @@ include 'adminheader.php';
                             <?php
                             }
                             ?>
+                            </div>
                         </td>
                     </tr>
                 <?php
