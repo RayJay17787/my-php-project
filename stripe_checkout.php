@@ -3,11 +3,16 @@ session_start();
 
 include 'config.php';
 
-if ($_SERVER['REQUEST_SERVER'] == 'POST' || isset($_POST['total_amount'])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' || isset($_POST['total_amount']) || isset($_POST['grand_total'])) {
 
-    $total_amount = $_POST['total_amount'];
-    $customer_name = $_POST['customer_name'] ?? 'Guest Customer';
-    $shipping_address = $_POST['customer_address'] ?? '';
+    if (isset($_POST['total_amount'])) {
+        $total_amount = $_POST['total_amount'];
+    } else {
+        $total_amount = $_POST['grand_total'];
+    }
+
+    $customer_name = $_POST['customer_name'];
+    $shipping_address = $_POST['customer_address'];
 
     $_SESSION['temp_order_details'] = $_POST;
 
@@ -79,5 +84,6 @@ if ($_SERVER['REQUEST_SERVER'] == 'POST' || isset($_POST['total_amount'])) {
     }
 } else {
     header("Location: user.php");
+    // echo '<script>alert("Order Not Placed");</script>';
 }
 ?>

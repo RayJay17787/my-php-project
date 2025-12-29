@@ -60,7 +60,3 @@ include 'userheader.php';
         </div>
     </div>
 </div>
-<?php
-header("Location: user.php");
-exit();
-?>
