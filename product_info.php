@@ -40,6 +40,28 @@ include "userheader.php";
 
                     <h4 class="mb-0"><?= $total['company'] ?></h4>
                     <br>
+                    <?php
+                        if($total['platform'] == 'Playstation 5'){
+                            ?>
+                            <h6>Available On  <i style="width: 30px; height: 30px;" class="fa-brands fa-playstation me-2"></i></h6>
+                            <?php
+                        }
+                        if($total['platform'] == 'Playstation 4'){
+                            ?>
+                            <h6>Available On  <i style="width: 30px; height: 30px; color: blue;" class="fa-brands fa-playstation me-2"></i></h6>
+                            <?php
+                        }
+                        if($total['platform'] == 'Xbox'){
+                            ?>
+                            <h6>Available On  <i style="width: 30px; height: 30px; color: green;" class="fa-brands fa-xbox me-2"></i></h6>
+                            <?php
+                        }
+                        if($total['platform'] == 'Nintendo'){
+                            ?>
+                            <h6>Available On  <i style="width: 30px; height: 30px; color: red;" class="bi bi-nintendo-switch me-2"></i></h6>
+                            <?php
+                        }
+                    ?>
                     <hr>
                     <?php
                     if ($total['stock'] > 0) {

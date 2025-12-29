@@ -51,7 +51,7 @@ include 'adminheader.php';
                     <td><?= $row['name']; ?></td>
                     <td><?= $row['phone']; ?></td>
                     <td><?= $row['email']; ?></td>
-                    <td><?= $row['shipping_address']; ?></td>
+                    <td><?= $row['shipping_address'];?></td>
                     <td>
                         <?php
                         for($j = 0; $j < $total_items; $j++){

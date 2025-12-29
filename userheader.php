@@ -96,17 +96,17 @@ $user = $_SESSION['customer'];
         </div>
         <div class="offcanvas-body p-0">
             <div class="list-group list-group-flush">
-                <a href="ps5.php" class="list-group-item list-group-item-action ps-4">
+                <a href="ps5_user_products.php" class="list-group-item list-group-item-action ps-4">
                     <i class="fa-brands fa-playstation me-2"></i> PlayStation 5
                 </a>
-                <a href="ps4.php" class="list-group-item list-group-item-action ps-4">
+                <a href="ps4_user_products.php" class="list-group-item list-group-item-action ps-4">
                     <i class="fa-brands fa-playstation me-2" style="color: #1521a4;"></i> PlayStation 4
                 </a>
-                <a href="xbox.php" class="list-group-item list-group-item-action ps-4">
-                    <i class="fa-brands fa-xbox me-2"></i> Xbox
+                <a href="xbox_user_products.php" class="list-group-item list-group-item-action ps-4">
+                    <i style="color: green;" class="fa-brands fa-xbox me-2"></i> Xbox
                 </a>
-                <a href="nintendo.php" class="list-group-item list-group-item-action ps-4">
-                    <i class="bi bi-nintendo-switch me-2" style="color: red;"></i> Nintendo Switch
+                <a href="nintendo_user_products.php" class="list-group-item list-group-item-action ps-4">
+                    <i style="color: red;" class="bi bi-nintendo-switch me-2"></i> Nintendo Switch
                 </a>
             </div>
         </div>
