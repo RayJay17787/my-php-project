@@ -24,6 +24,7 @@ include "userheader.php";
                 </div>
                 <div class="card-body">
                     <?php
+                    $grand_total = 0;
                     foreach ($cart as $item) {
                         $subtotal = $item['price'] * $item['quantity'];
                         $grand_total = $grand_total + $subtotal;
@@ -39,7 +40,7 @@ include "userheader.php";
                         <?php
                     }
                     ?>
-                    <h4 class="text-end">Grand Total: Rs.<?= $grand_total ?></h4>
+                    <h4 class="text-center">Grand Total: Rs.<?= $grand_total ?></h4>
                 </div>
             </div>
         </div>

@@ -36,13 +36,11 @@ $user = $_SESSION['customer'];
                 data-bs-target="#sidebar">
                 <i class="fa-solid fa-bars fw-bold fs-4"></i>
             </button>
-            <a class="navbar-brand ms-2 text-white fw-bold form-text ms-3 fs-4"
-                href="user.php"><i>GAME</i>VAULT</a>
+            <a class="navbar-brand ms-2 text-white fw-bold form-text ms-3 fs-4" href="user.php"><i>GAME</i>VAULT</a>
 
-            <form class="d-flex mx-auto" style="width: 500px;">
+            <form class="d-flex mx-auto" style="width: 500px;" action="user_products.php" method="GET">
                 <div class="input-group">
-                    <input type="search" class="form-control" placeholder="Search entire store here..." id="search"
-                        name="search">
+                    <input type="search" class="form-control" placeholder="Search entire store here..." id="search" name="search" value="<?php if(isset($_GET['search'])){ echo $_GET['search']; } ?>">
                     <button class="btn btn-danger" type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
@@ -61,7 +59,7 @@ $user = $_SESSION['customer'];
                 </li>
                 <li class="nav-item form-text">
                     <a class="nav-link text-white fs-6 fw-semibold" href="profile.php">
-                        <i class="bi bi-person-circle me-2"></i><?= $user['name']; ?>
+                        <i class="bi bi-person-circle me-2"></i><?php echo $user['name']; ?>
                     </a>
                 </li>
                 <li class="nav-item form-text">
@@ -73,12 +71,11 @@ $user = $_SESSION['customer'];
                     <a class="nav-link text-white fs-6 fw-semibold" href="#" data-bs-toggle="offcanvas"
                         data-bs-target="#shoppingcart">
                         <i class="fa-solid fa-cart-shopping"></i> (<?php
-                            if(isset($_SESSION['cart'])){
-                                echo count($_SESSION['cart']);
-                            }
-                            else{
-                                echo 0;
-                            }
+                        if (isset($_SESSION['cart'])) {
+                            echo count($_SESSION['cart']);
+                        } else {
+                            echo 0;
+                        }
                         ?>)
                     </a>
                 </li>
@@ -121,52 +118,48 @@ $user = $_SESSION['customer'];
         </div>
         <div class="offcanvas-body p-0">
             <?php
-                if(isset($_SESSION['cart']) && count($_SESSION['cart']) > 0){
+            if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) {
+                ?>
+                <?php
+                $grand_total = 0;
+                foreach ($_SESSION['cart'] as $item) {
+                    $grand_total = $grand_total + ($item['price'] * $item['quantity']);
                     ?>
-                    <?php
-                        $grand_total = 0;
-                        foreach($_SESSION['cart'] as $item){
-                            $grand_total = $grand_total + ($item['price'] * $item['quantity']);
-                            ?>
-                            <div class="d-flex p-3 border-bottom">
-                                <img src="images/<?= $item['image']; ?>" alt="" style="width: 60px; height: 60px;">
-                                <div class="ms-3">
-                                    <h6><?= $item['name'];?></h6>
-                                    <p class="mb-0">Rs. <?php echo $item['price'];?> x <?php echo $item['quantity'];?></p>
-                                    <div class="">
-                                        <a href="product_remove_cart.php?id=<?= $item['id']; ?>">
-                                            <button class="btn btn-danger btn-sm mt-2"><i class="fa-solid fa-trash"></i> Remove Item</button>
-                                        </a>
-                        </div>
-                                </div>
+                    <div class="d-flex p-3 border-bottom">
+                        <img src="images/<?= $item['image']; ?>" alt="" style="width: 60px; height: 60px;">
+                        <div class="ms-3">
+                            <h6><?= $item['name']; ?></h6>
+                            <p class="mb-0">Rs. <?php echo $item['price']; ?> x <?php echo $item['quantity']; ?></p>
+                            <div class="">
+                                <a href="product_remove_cart.php?id=<?= $item['id']; ?>">
+                                    <button class="btn btn-danger btn-sm mt-2"><i class="fa-solid fa-trash"></i> Remove
+                                        Item</button>
+                                </a>
                             </div>
-                            <?php
-                        }
-                    ?>
-                    <div class="p-3">
-                        <h5>Total: Rs. <?php echo $grand_total;?></h5>
-                        <a href="cart_checkout.php" class="btn btn-success w-100">Buy Now</a>
-                    </div>
-                    <?php
-                } else{
-                    ?>
-                    <div class="text-center p-3">
-                        <i class="fa-solid fa-cart-shopping fs-1 text-muted mb-3"></i>
-                        <h5 class="text-muted">Your cart is empty</h5>
+                        </div>
                     </div>
                     <?php
                 }
+                ?>
+                <div class="p-3">
+                    <h5>Total: Rs. <?php echo $grand_total; ?></h5>
+                    <a href="cart_checkout.php" class="btn btn-success w-100">Buy Now</a>
+                </div>
+                <?php
+            } else {
+                ?>
+                <div class="text-center p-3">
+                    <i class="fa-solid fa-cart-shopping fs-1 text-muted mb-3"></i>
+                    <h5 class="text-muted">Your cart is empty</h5>
+                </div>
+                <?php
+            }
             ?>
-            </div>
         </div>
     </div>
-
     <script>
         history.pushState(null, null, location.href);
         window.onpopstate = function () {
             history.go(1);
         };
     </script>
-</body>
-
-</html>

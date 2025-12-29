@@ -2,6 +2,8 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
+$user = $_SESSION['customer'];
+
 if (!isset($_GET['session_id'])) {
     header("Location: user.php");
     exit();
@@ -29,7 +31,6 @@ if ($post_data) {
             $item_query = "INSERT INTO order_items (order_id, product_id, quantity, price_at_purchase) values($order_id, $product_id, $quantity, $price)";
             mysqli_query($conn, $item_query);
         }
-        unset($_SESSION['cart']);
 
     } elseif (isset($post_data['product_id'])) {
         $product_id = $post_data['product_id'];
@@ -44,7 +45,7 @@ if ($post_data) {
         $item_query = "INSERT INTO order_items (order_id, product_id, quantity, price_at_purchase) VALUES ($order_id, $product_id, $quantity, $price)";
         mysqli_query($conn, $item_query);
     }
-
+    unset($_SESSION['cart']);
     unset($_SESSION['temp_order_details']);
 }
 
@@ -52,11 +53,11 @@ include 'userheader.php';
 ?>
 
 <div class="container text-center" style="margin-top: 150px;">
-    <div class="card shadow p-5">
-        <i class="bi bi-check-circle-fill text-success" style="font-size: 80px;"></i>
-        <h1 class="mt-3">Payment Successful!</h1>
+    <div class="p-5">
+        <i class="bi bi-check-circle text-success" style="font-size: 80px;"></i>
+        <h1 class="mt-3 mb-5"><b>Thank You, <?= $user['name'] ?>. <br>Payment Successful!</b>
         <div class="mt-4">
-            <a href="user.php" class="btn btn-danger btn-lg">Back to Home</a>
+            <a href="user.php" class="btn btn-success btn-lg">Back to Home</a>
         </div>
     </div>
 </div>

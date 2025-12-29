@@ -2,48 +2,51 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
-$query = "SELECT * FROM products";
+include 'userheader.php';
+
+$search = "";
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+}
+
+$query = "SELECT * FROM products WHERE 
+          name LIKE '%$search%' OR 
+          company LIKE '%$search%' OR 
+          platform LIKE '%$search%'";
 
 $result = mysqli_query($conn, $query);
-
-$row = mysqli_num_rows($result);
-
-include 'userheader.php';
 ?>
 
 <div class="container p-5 mt-5">
     <div class="row g-4">
         <h1 class="text-center mb-3"><b>Products</b></h1>
+        
         <?php
-        for ($i = 0; $i < $row; $i++) {
-            $total = mysqli_fetch_assoc($result);
-        ?>
+        while ($total = mysqli_fetch_assoc($result)) {
+            ?>
             <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card border shadow-sm h-100 product-card">
-                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?= $total['id'];?>">
-                        <img src="images/<?= $total['image']; ?>"
-                            class="card-img-top" alt="Product" style="height: 300px;">
-                        <div class="card-body d-flex flex-column">
-                            <div class="card-title" style="min-height: 48px;">
-                                <b><?= $total['name']; ?></b>
-                                <br>
-                                <?= $total['company']; ?>
-                                <br>
-                                <?= $total['platform']; ?>
-                            </div>
+                <div class="card border shadow-sm h-100">
+                    <a class="text-decoration-none text-dark" href="product_info.php?id=<?php echo $total['id']; ?>">
+                        <img src="images/<?php echo $total['image']; ?>" class="card-img-top" alt="Product" style="height: 300px;">
+                        <div class="card-body">
+                            <b><?php echo $total['name']; ?></b><br>
+                            <?php echo $total['company']; ?><br>
+                            <?php echo $total['platform']; ?>
+                        </div>
                     </a>
-                    <p class="text-danger fw-bold mb-3">Rs. <?= $total['price']; ?></p>
-                    <a href="product_info.php?id=<?= $total['id'];?>">
-                        <button class="btn btn-danger w-100 mt-auto">
-                            <i class="bi bi-joystick me-2"></i> View Product Info
-                        </button>
-                    </a>
+                    <div class="card-body">
+                        <p class="text-danger fw-bold">Rs. <?php echo $total['price']; ?></p>
+                        <a href="product_info.php?id=<?php echo $total['id']; ?>" class="btn btn-danger w-100">
+                           View Details
+                        </a>
+                    </div>
                 </div>
             </div>
-    </div>
-
-<?php
+            <?php
         }
-?>
-</div>
+        if (mysqli_num_rows($result) == 0) {
+            echo "<h3 class='text-center'>No games found!</h3>";
+        }
+        ?>
+    </div>
 </div>

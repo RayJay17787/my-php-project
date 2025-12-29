@@ -50,8 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || isset($_POST['total_amount']) || iss
         'payment_method_types' => ['card'],
         'line_items' => $line_items,
         'mode' => 'payment',
-        'success_url' => 'http://localhost/my-php-project/payment_success.php?session_id={CHECKOUT_SESSION_ID}',
-        'cancel_url' => 'http://localhost/my-php-project/user.php',
+        'success_url' => 'http://' . $_SERVER['HTTP_HOST'] . '/my-php-project/payment_success.php?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url' => 'http://' . $_SERVER['HTTP_HOST'] . '/my-php-project/user.php',
         'customer_email' => $_SESSION['customer']['email'] ?? '',
     ]);
 
@@ -84,6 +84,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || isset($_POST['total_amount']) || iss
     }
 } else {
     header("Location: user.php");
-    // echo '<script>alert("Order Not Placed");</script>';
+    echo '<script>alert("Order Not Placed");</script>';
 }
 ?>

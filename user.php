@@ -412,7 +412,7 @@ include 'userheader.php';
     <h2 class="fw-bold mb-4 border-bottom border-danger border-3 pb-2">Shop by Category</h2>
     <div class="row g-4 text-center justify-content-center g-lg-5">
         <div class="col-lg-2 col-md-4 col-6">
-            <a href="#" class="text-decoration-none text-dark">
+            <a href="xbox_user_products.php" class="text-decoration-none text-dark">
                 <div class="card border shadow-sm h-100">
                     <div class="card-body">
                         <i class="fa-brands fa-xbox fs-1 mb-3 mt-3" style="color: #199421;"></i>
@@ -422,7 +422,7 @@ include 'userheader.php';
             </a>
         </div>
         <div class="col-lg-2 col-md-4 col-6">
-            <a href="#" class="text-decoration-none text-dark">
+            <a href="ps4_user_products.php" class="text-decoration-none text-dark">
                 <div class="card border shadow-sm h-100">
                     <div class="card-body">
                         <i class="fa-brands fa-playstation fs-1 text-primary mb-3 mt-3"></i>
@@ -432,7 +432,7 @@ include 'userheader.php';
             </a>
         </div>
         <div class="col-lg-2 col-md-4 col-6">
-            <a href="#" class="text-decoration-none text-dark">
+            <a href="nintendo_user_products.php" class="text-decoration-none text-dark">
                 <div class="card border shadow-sm h-100">
                     <div class="card-body">
                         <i class="bi bi-nintendo-switch fs-1 mb-3 mt-3" style="color: #ce0909;"></i>
@@ -442,7 +442,7 @@ include 'userheader.php';
             </a>
         </div>
         <div class="col-lg-2 col-md-4 col-6">
-            <a href="#" class="text-decoration-none text-dark">
+            <a href="ps5_user_products.php" class="text-decoration-none text-dark">
                 <div class="card border shadow-sm h-100">
                     <div class="card-body">
                         <i class="fa-brands fa-playstation fs-1 mb-3 mt-3" style="color: black;"></i>
