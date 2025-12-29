@@ -20,18 +20,10 @@
     include 'adminheader.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-    
 <body>
 
 
-    <div class="container pt-3 pt-md-5 pb-3 pb-md-5  mt-5">
+<div class="container-fluid px-4 pt-2">
         <div class="row justify-content-center">
             <div class=" col-md-8 col-lg-6 ">
                 <h1 class="text-dark fw-bold text-center mb-3 mb-md-4" style="font-size: 48px; font-style: italic;">

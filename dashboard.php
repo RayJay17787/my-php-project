@@ -48,7 +48,7 @@ include 'adminheader.php';
 ?>
 
 <body class="bg-light">
-    <div class="bg-danger text-white text-center p-4 mb-4 shadow-sm">
+    <div class="bg-danger text-white rounded-3 text-center p-4 mb-4 shadow-sm">
         <div class="container-fluid">
             <h2>Dashboard</h2>
         </div>

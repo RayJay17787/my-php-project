@@ -99,13 +99,18 @@
         </div>
         <div class="offcanvas-body p-0">
             <div class="text-center py-5">
-                <i class="fa-solid fa-cart-shopping fs-1 text-muted mb-3"></i>
+                <i class="fa-solid fa-cart-shopping fs-1 text-muted mb-4"></i>
                 <p class="text-muted">
                     Your cart is empty <br>
                     Sign In to Purchase! <br><br>
-                    <a href="signin.php">
-                        <button class="btn btn-primary btn-sm">Sign In</button>
-                    </a>
+                    <div class="d-flex justify-content-center gap-2">
+                        <a href="signin.php">
+                            <button class="btn btn-primary btn-sm">Sign In</button>
+                        </a>
+                        <a href="signup.php">
+                            <button class="btn btn-primary btn-sm">Sign Up</button>
+                        </a>
+                    </div>
                 </p>
             </div>
         </div>
