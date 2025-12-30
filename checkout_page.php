@@ -5,6 +5,8 @@ $id = $_GET['id'];
 $qty = $_GET['quantity'];
 $result = mysqli_query($conn, "SELECT * FROM products WHERE id = $id");
 
+$tax = '18%';
+
 $total = mysqli_fetch_assoc($result);
 
 $user = $_SESSION['customer'];
@@ -23,7 +25,7 @@ include "userheader.php";
 
             <div class="col-md-6">
                 <img src="images/<?= $total['image'] ?>" class="card-img rounded shadow" alt="Product"
-                    style="height: 767px;">
+                    style="height: 790px;">
             </div>
 
             <div class="col-md-6 mt-5">
@@ -51,6 +53,11 @@ include "userheader.php";
                                         <div class="col-6">Price:</div>
                                         <div class="col-6 text-end" id="displayPrice"> Rs.<?= $total['price'] ?></div>
                                     </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-6">Tax:</div>
+                                        <div class="col-6 text-end" id="displayTax"><?= $tax?></div>
+                                    </div>
 
                                     <div class="row">
                                         <div class="col-6">Quantity:</div>
@@ -62,7 +69,7 @@ include "userheader.php";
                                     <div class="row">
                                         <div class="col-6 fw-bold">Total:</div>
                                         <div class="col-6 text-end text-primary fw-bold" id="displayTotal">
-                                            Rs.<?= $total['price'] * $qty ?></div>
+                                            Rs.<?= $total['price'] * $qty * 1.18?></div>
                                     </div>
                                 </div>
                             </div>

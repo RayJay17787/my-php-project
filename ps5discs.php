@@ -2,6 +2,11 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
+if (!isset($_SESSION['admin'])) {
+    header("Location: signin.php");
+    exit();
+}
+
 if (isset($_GET['filter'])) {
     $filter = $_GET['filter'];
 

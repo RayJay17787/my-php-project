@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
 if (isset($_POST['signinButton'])) {
@@ -36,6 +36,7 @@ if (isset($_POST['signinButton'])) {
 }
 
 if (isset($_SESSION['$admin'])) {
+    session_start();
     header("Location: dashboard.php");
     exit();
 }

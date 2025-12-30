@@ -1,8 +1,10 @@
 <?php
     session_start();
     session_unset();
-    session_destroy();
+    $des = session_destroy();
 
-    header("Location: storefront.php");
-    exit();
+    if(isset($des)){
+        header("Location: storefront.php");
+        exit();
+    }
 ?>

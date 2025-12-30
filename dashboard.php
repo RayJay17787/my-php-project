@@ -50,7 +50,7 @@ include 'adminheader.php';
 <body class="bg-light">
     <div class="bg-danger text-white rounded-3 text-center p-4 mb-4 shadow-sm">
         <div class="container-fluid">
-            <h2>Dashboard</h2>
+            <h2>Welcome to the Dashboard, <?= $admin['username'];?>!</h2>
         </div>
     </div>
 

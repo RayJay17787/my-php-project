@@ -2,6 +2,11 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
+if (!isset($_SESSION['admin'])) {
+    header("Location: signin.php");
+    exit();
+}
+
 $query = "SELECT orders.id, orders.shipping_address, customers.name, customers.phone, customers.email FROM orders JOIN customers ON orders.customer_id = customers.id";
 
 $revenue_query = "SELECT SUM(order_items.quantity * products.price) as total FROM order_items JOIN products ON order_items.product_id = products.id";

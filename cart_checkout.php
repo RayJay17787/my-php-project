@@ -25,9 +25,10 @@ include "userheader.php";
                 <div class="card-body">
                     <?php
                     $grand_total = 0;
+                    $tax = 1.18;
                     foreach ($cart as $item) {
                         $subtotal = $item['price'] * $item['quantity'];
-                        $grand_total = $grand_total + $subtotal;
+                        $grand_total = $grand_total + $subtotal * $tax;
                         ?>
                         <div class="d-flex border-bottom pb-3 mb-3">
                             <img src="images/<?= $item['image'] ?>" style="width: 80px; height: 80px;">

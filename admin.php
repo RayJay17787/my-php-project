@@ -2,19 +2,20 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
+if (!isset($_SESSION['admin'])) {
+    header("Location: signin.php");
+    exit();
+}
+
 if (isset($_GET['filter'])) {
     $filter = $_GET['filter'];
 
     if ($filter == 'delAdmin') {
         $query = "SELECT * FROM users WHERE status = 'inactive'";
-    } 
-    
-    else {
+    } else {
         $query = "SELECT * FROM users WHERE status = 'active'";
     }
-} 
-
-else {
+} else {
     $query = "SELECT * FROM users WHERE status = 'active'";
 }
 
@@ -34,16 +35,18 @@ include 'adminheader.php';
         <div class="d-flex gap-2">
             <?php
             if (isset($_GET['filter']) && $_GET['filter'] == 'delAdmin') {
-            ?>
+                ?>
                 <a href="?admin.php">
-                    <button class="btn btn-success rounded-pill mb-4"><i style="color: white;" class="fa-solid fa-trash"></i> Hide Deleted Admins</button>
+                    <button class="btn btn-success rounded-pill mb-4"><i style="color: white;"
+                            class="fa-solid fa-trash"></i> Hide Deleted Admins</button>
                 </a>
-            <?php
-            }else{
+                <?php
+            } else {
                 ?>
                 <a href="?filter=delAdmin">
-                <button class="btn btn-success rounded-pill mb-4"><i style="color: white;" class="fa-solid fa-trash"></i> Show Deleted Admins</button>
-            </a>
+                    <button class="btn btn-success rounded-pill mb-4"><i style="color: white;"
+                            class="fa-solid fa-trash"></i> Show Deleted Admins</button>
+                </a>
                 <?php
             }
             ?>
@@ -67,7 +70,7 @@ include 'adminheader.php';
                 <?php
                 for ($i = 0; $i < $row; $i++) {
                     $total = mysqli_fetch_assoc($result);
-                ?>
+                    ?>
                     <tr>
                         <td><?= $i + 1 ?></td>
                         <td><?= $total['id']; ?></td>
@@ -75,32 +78,38 @@ include 'adminheader.php';
                         <td><?= $total['password']; ?></td>
                         <td><?= $total['email']; ?></td>
                         <td>
-                            <!-- <a href="edit_admin.php?id=<?= $total['id']; ?>">
-                                <button class="btn btn-warning btn-sm">Edit</button>
-                            </a> -->
                             <?php
-                                if(isset($_GET['filter']) && $_GET['filter'] == 'delAdmin'){
-                                    ?>
-                                        <a href="undo_admin_delete.php?id=<?= $total['id']; ?>">
-                                            <button onclick="return confirm('Are you sure you want to restore <?= $total['username'];?>')" class="btn btn-secondary btn-sm">Restore</button>     
-                                            <a href="delete_admin_perm.php?id=<?= $total['id']; ?>">
-                                        <button onclick="return confirm('Are you sure you want to delete <?= $total['username'];?> permanently')" class="btn btn-danger btn-sm">Delete Permanently</button>
-                                    </a>
-                                    <?php
-                                } else{
+                            if (isset($_GET['filter']) && $_GET['filter'] == 'delAdmin') {
+                                ?>
+                                <a href="undo_admin_delete.php?id=<?= $total['id']; ?>">
+                                    <button
+                                        onclick="return confirm('Are you sure you want to restore <?= $total['username']; ?>')"
+                                        class="btn btn-secondary btn-sm">Restore</button>
+                                </a>
+                                <a href="delete_admin_perm.php?id=<?= $total['id']; ?>">
+                                    <button
+                                        onclick="return confirm('Are you sure you want to delete <?= $total['username']; ?> permanently')"
+                                        class="btn btn-danger btn-sm">Delete Permanently</button>
+                                </a>
+                                <?php
+                            } else {
+                                if ($i >= 2) {
                                     ?>
                                     <a href="edit_admin.php?id=<?= $total['id']; ?>">
-                                <button class="btn btn-warning btn-sm">Edit</button>
-                            </a>
-                                        <a href="delete_admin.php?id=<?= $total['id']; ?>">
-                                <button onclick="return confirm('Are you sure you want to remove <?= $total['username'];?>')" class="btn btn-danger btn-sm">Remove</button>
+                                        <button class="btn btn-warning btn-sm">Edit</button>
+                                    </a>
+                                    <a href="delete_admin.php?id=<?= $total['id']; ?>">
+                                        <button
+                                            onclick="return confirm('Are you sure you want to remove <?= $total['username']; ?>')"
+                                            class="btn btn-danger btn-sm">Remove</button>
+                                    </a>
                                     <?php
                                 }
+                            }
                             ?>
-                            </a>
                         </td>
                     </tr>
-                <?php
+                    <?php
                 }
                 ?>
             </tbody>
