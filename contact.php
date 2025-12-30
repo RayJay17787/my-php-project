@@ -9,6 +9,11 @@ if (isset($_SESSION['admin'])) {
     $admin = $_SESSION['admin'];
     $loggedin = 'admin';
     include 'adminheader.php';
+
+    if (!isset($_SESSION['admin'])) {
+        header("Location: signin.php");
+        exit();
+    }
 } 
 
 elseif (isset($_SESSION['customer'])) {
@@ -19,6 +24,11 @@ elseif (isset($_SESSION['customer'])) {
     $user = $_SESSION['customer'];
     $loggedin = 'user';
     include 'userheader.php';
+
+    if (!isset($_SESSION['customer'])) {
+    header("Location: signin.php");
+    exit();
+}
 } 
 
 else {
