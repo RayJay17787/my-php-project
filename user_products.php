@@ -2,6 +2,11 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
+if (!isset($_SESSION['customer'])) {
+    header("Location: signin.php");
+    exit();
+}
+
 include 'userheader.php';
 
 $search = "";

@@ -2,6 +2,11 @@
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
 
+if (!isset($_SESSION['customer'])) {
+    header("Location: signin.php");
+    exit();
+}
+
 $query = "SELECT * FROM products WHERE platform = 'Playstation 5'";
 
 $result = mysqli_query($conn, $query);

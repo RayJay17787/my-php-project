@@ -1,6 +1,12 @@
 <?php
 session_start();
 $conn = mysqli_connect('localhost', 'root', '', 'gaming_store');
+
+if (!isset($_SESSION['customer'])) {
+    header("Location: signin.php");
+    exit();
+}
+
 $id = $_GET['id'];
 $query = "SELECT * FROM products WHERE id = $id";
 $result = mysqli_query($conn, $query);
