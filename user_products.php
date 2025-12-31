@@ -14,10 +14,7 @@ if (isset($_GET['search'])) {
     $search = $_GET['search'];
 }
 
-$query = "SELECT * FROM products WHERE 
-          name LIKE '%$search%' OR 
-          company LIKE '%$search%' OR 
-          platform LIKE '%$search%'";
+$query = "SELECT * FROM products WHERE name LIKE '%$search%' OR company LIKE '%$search%' OR platform LIKE '%$search%'";
 
 $result = mysqli_query($conn, $query);
 ?>
@@ -50,7 +47,9 @@ $result = mysqli_query($conn, $query);
             <?php
         }
         if (mysqli_num_rows($result) == 0) {
-            echo "<h3 class='text-center'>No games found!</h3>";
+            ?>
+            <h3 class="text-center">No games found!</h3>
+            <?php
         }
         ?>
     </div>
