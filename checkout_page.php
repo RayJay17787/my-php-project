@@ -5,8 +5,6 @@ $id = $_GET['id'];
 $qty = $_GET['quantity'];
 $result = mysqli_query($conn, "SELECT * FROM products WHERE id = $id");
 
-$tax = '18%';
-
 $total = mysqli_fetch_assoc($result);
 
 $user = $_SESSION['customer'];
@@ -56,7 +54,7 @@ include "userheader.php";
                                     
                                     <div class="row">
                                         <div class="col-6">Tax:</div>
-                                        <div class="col-6 text-end" id="displayTax"><?= $tax?></div>
+                                        <div class="col-6 text-end" id="displayTax">18%</div>
                                     </div>
 
                                     <div class="row">
@@ -83,19 +81,19 @@ include "userheader.php";
                             <div class="mb-3">
                                 <label class="form-label"><b>Full Name</b></label>
                                 <input type="text" value="<?= $user['name'] ?>" class="form-control"
-                                    name="customer_name" required>
+                                    name="customer_name" required readonly>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label"><b>Email</b></label>
                                 <input type="email" value="<?= $user['email'] ?>" class="form-control"
-                                    name="customer_email" required>
+                                    name="customer_email" required readonly>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label"><b>Contact</b></label>
                                 <input value="<?= $user['phone'] ?>" type="tel" class="form-control"
-                                    name="customer_contact" pattern="[0-9]{11}" placeholder="03001234567" required>
+                                    name="customer_contact" pattern="[0-9]{11}" placeholder="03001234567" required readonly>
                             </div>
 
                             <div class="mb-3">

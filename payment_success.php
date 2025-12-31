@@ -9,7 +9,12 @@ if (!isset($_GET['session_id'])) {
     exit();
 }
 
-$post_data = $_SESSION['temp_order_details'] ?? null;
+if (isset($_SESSION['temp_order_details'])) {
+    $post_data = $_SESSION['temp_order_details'];
+} 
+else {
+    $post_data = 0;
+}
 
 if ($post_data) {
     $customer_id = $_SESSION['customer']['id'];

@@ -35,7 +35,7 @@ if (isset($_POST['signinButton'])) {
     }
 }
 
-if (isset($_SESSION['$admin'])) {
+if (isset($_SESSION['admin'])) {
     session_start();
     header("Location: dashboard.php");
     exit();

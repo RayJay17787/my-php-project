@@ -47,7 +47,6 @@ include 'userheader.php';
                     <?php
                     for ($i = 0; $i < 4; $i++) {
                         $total = mysqli_fetch_assoc($result);
-                        if ($total) {
                             ?>
                             <div class="col-lg-3 col-md-4">
                                 <div class="card border shadow-sm h-100">
@@ -66,7 +65,7 @@ include 'userheader.php';
                                     </div>
                                 </div>
                             </div>
-                        <?php }
+                        <?php 
                     } ?>
                 </div>
             </div>

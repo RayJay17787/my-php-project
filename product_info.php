@@ -15,18 +15,6 @@ $total = mysqli_fetch_assoc($result);
 include "userheader.php";
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-
 <body>
     <div class="container my-5">
         <div class="container">
@@ -39,7 +27,9 @@ include "userheader.php";
                 <div class="col-md-6">
                     <div class="card shadow mt-5 mb-1 ">
                         <div class="card bg-danger text-white h-50 ">
-                            <h2 class="text-center py-2 fw-bold"><div class="py-2 mt-2"><i class="bi bi-info-square-fill pe-2"></i>Product Details</div></h2>
+                            <h2 class="text-center py-2 fw-bold">
+                                <div class="py-2 mt-2"><i class="bi bi-info-square-fill pe-2"></i>Product Details</div>
+                            </h2>
                         </div>
                     </div>
                     <h3 class="mb-3 mt-5"><b><?= $total['name'] ?></b></h3>
@@ -47,26 +37,30 @@ include "userheader.php";
                     <h4 class="mb-0"><?= $total['company'] ?></h4>
                     <br>
                     <?php
-                        if($total['platform'] == 'Playstation 5'){
-                            ?>
-                            <h6>Available On  <i style="width: 30px; height: 30px;" class="fa-brands fa-playstation me-2"></i></h6>
-                            <?php
-                        }
-                        if($total['platform'] == 'Playstation 4'){
-                            ?>
-                            <h6>Available On  <i style="width: 30px; height: 30px; color: blue;" class="fa-brands fa-playstation me-2"></i></h6>
-                            <?php
-                        }
-                        if($total['platform'] == 'Xbox'){
-                            ?>
-                            <h6>Available On  <i style="width: 30px; height: 30px; color: green;" class="fa-brands fa-xbox me-2"></i></h6>
-                            <?php
-                        }
-                        if($total['platform'] == 'Nintendo'){
-                            ?>
-                            <h6>Available On  <i style="width: 30px; height: 30px; color: red;" class="bi bi-nintendo-switch me-2"></i></h6>
-                            <?php
-                        }
+                    if ($total['platform'] == 'Playstation 5') {
+                        ?>
+                        <h6>Available On <i style="width: 30px; height: 30px;" class="fa-brands fa-playstation me-2"></i>
+                        </h6>
+                        <?php
+                    }
+                    if ($total['platform'] == 'Playstation 4') {
+                        ?>
+                        <h6>Available On <i style="width: 30px; height: 30px; color: blue;"
+                                class="fa-brands fa-playstation me-2"></i></h6>
+                        <?php
+                    }
+                    if ($total['platform'] == 'Xbox') {
+                        ?>
+                        <h6>Available On <i style="width: 30px; height: 30px; color: green;"
+                                class="fa-brands fa-xbox me-2"></i></h6>
+                        <?php
+                    }
+                    if ($total['platform'] == 'Nintendo') {
+                        ?>
+                        <h6>Available On <i style="width: 30px; height: 30px; color: red;"
+                                class="bi bi-nintendo-switch me-2"></i></h6>
+                        <?php
+                    }
                     ?>
                     <hr>
                     <?php
@@ -128,12 +122,10 @@ include "userheader.php";
 
         function updateUI() {
             const subtotal = pricePerUnit * quantity;
-            subtotalSpan.textContent = `Rs.${subtotal.toLocaleString('en-PK', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-
+            subtotalSpan.textContent = "Rs." + subtotal;
             quantityInput.value = quantity;
-
-            buyNowBtn.href = `checkout_page.php?id=${productId}&quantity=${quantity}`;
-            addToCartBtn.href = `add_to_cart.php?id=${productId}&quantity=${quantity}`;
+            buyNowBtn.href = "checkout_page.php?id=" + productId + "&quantity=" + quantity;
+            addToCartBtn.href = "add_to_cart.php?id=" + productId + "&quantity=" + quantity;
         }
 
         increaseBtn.addEventListener('click', function () {
