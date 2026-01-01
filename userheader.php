@@ -40,7 +40,12 @@ $user = $_SESSION['customer'];
 
             <form class="d-flex mx-auto" style="width: 500px;" action="user_products.php" method="GET">
                 <div class="input-group">
-                    <input type="search" class="form-control" placeholder="Search entire store here..." id="search" name="search" value="<?php if(isset($_GET['search'])){ echo $_GET['search']; } ?>">
+                    <input type="search" class="form-control" placeholder="Search entire store here..." id="search" name="search" value="
+                    <?php 
+                    if(isset($_GET['search'])){
+                         echo $_GET['search']; 
+                         } 
+                         ?>">
                     <button class="btn btn-danger" type="submit">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
