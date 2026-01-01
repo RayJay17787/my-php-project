@@ -51,7 +51,7 @@ include 'guestheader.php'
     <div class="container pt-3 pt-md-5 pb-3 pb-md-5  mt-5">
         <div class="row justify-content-end">
             <div class=" col-md-8 col-lg-6 ">
-                <h1 class="text-dark fw-bold text-center mb-3 mb-md-4" style="font-size: 48px; font-style: italic;">
+                <h1 class="text-light fw-bold text-center mb-3 mb-md-4" style="font-size: 48px; font-style: italic;">
                     GAMEVAULT</h1>
 
                 <div class="card p-3 p-md-4">
